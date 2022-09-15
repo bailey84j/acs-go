@@ -1,6 +1,6 @@
 package image
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Image struct {
 	Client acs.Client

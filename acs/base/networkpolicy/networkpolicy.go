@@ -1,6 +1,6 @@
 package networkpolicy
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type NetworkPolicy struct {
 	Client acs.Client

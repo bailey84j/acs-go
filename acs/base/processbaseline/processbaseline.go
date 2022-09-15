@@ -1,6 +1,6 @@
 package processbaseline
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type ProcessBaseline struct {
 	Client acs.Client

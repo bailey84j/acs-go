@@ -1,6 +1,6 @@
 package credentialexpiry
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type CredentialExpiry struct {
 	Client acs.Client

@@ -1,6 +1,6 @@
 package rbac
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type RBAC struct {
 	Client acs.Client

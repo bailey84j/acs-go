@@ -1,6 +1,6 @@
 package networkbaseline
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type NetworkBaseline struct {
 	Client acs.Client

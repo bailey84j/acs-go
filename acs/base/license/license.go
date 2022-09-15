@@ -1,6 +1,6 @@
 package license
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type License struct {
 	Client acs.Client

@@ -1,6 +1,6 @@
 package detection
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Detection struct {
 	Client acs.Client

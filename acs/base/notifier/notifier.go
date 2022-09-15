@@ -1,6 +1,6 @@
 package notifier
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Notifier struct {
 	Client acs.Client

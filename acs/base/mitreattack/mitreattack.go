@@ -1,6 +1,6 @@
 package mitreattack
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type MitreAttack struct {
 	Client acs.Client

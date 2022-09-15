@@ -1,6 +1,6 @@
 package nodecve
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type NodeCVE struct {
 	Client acs.Client

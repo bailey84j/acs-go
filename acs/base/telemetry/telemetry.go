@@ -1,6 +1,6 @@
 package telemetry
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Telemetry struct {
 	Client acs.Client

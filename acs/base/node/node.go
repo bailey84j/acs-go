@@ -1,6 +1,6 @@
 package node
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Node struct {
 	Client acs.Client

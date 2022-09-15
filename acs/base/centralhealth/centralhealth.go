@@ -1,6 +1,6 @@
 package centralhealth
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type CentralHealth struct {
 	Client acs.Client

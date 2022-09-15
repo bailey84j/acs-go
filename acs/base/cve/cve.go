@@ -1,6 +1,6 @@
 package cve
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type CVE struct {
 	Client acs.Client

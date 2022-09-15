@@ -1,6 +1,6 @@
 package ping
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Ping struct {
 	Client acs.Client

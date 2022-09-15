@@ -1,6 +1,6 @@
 package signatureintegration
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type SignatureIntegration struct {
 	Client acs.Client

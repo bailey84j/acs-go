@@ -1,6 +1,6 @@
 package serviceidenity
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type ServiceIdenity struct {
 	Client acs.Client

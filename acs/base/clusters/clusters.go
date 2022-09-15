@@ -1,6 +1,6 @@
 package clusters
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Clusters struct {
 	Client acs.Client

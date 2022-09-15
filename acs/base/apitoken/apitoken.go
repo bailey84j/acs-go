@@ -1,8 +1,6 @@
 package apitoken
 
-import (
-	acs "github.com/bailey84j/acs-go/acs"
-)
+import "github.com/bailey84j/acs-go/acs"
 
 type APIToken struct {
 	Client acs.Client

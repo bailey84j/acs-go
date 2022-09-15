@@ -1,6 +1,6 @@
 package policycategory
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type PolicyCategory struct {
 	Client acs.Client

@@ -1,6 +1,6 @@
 package externalbackup
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type ExternalBackup struct {
 	Client acs.Client

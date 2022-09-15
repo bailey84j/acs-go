@@ -1,6 +1,6 @@
 package report
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type Report struct {
 	Client acs.Client

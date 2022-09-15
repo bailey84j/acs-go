@@ -1,6 +1,6 @@
 package integrationhealth
 
-import "github.com/bailey84j/acs-go"
+import "github.com/bailey84j/acs-go/acs"
 
 type IntegrationHealth struct {
 	Client acs.Client
