@@ -1,1 +1,1 @@
-package Notifier
+package notifier

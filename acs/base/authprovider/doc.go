@@ -1,1 +1,1 @@
-package AuthProvider
+package authprovider

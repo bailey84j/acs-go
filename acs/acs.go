@@ -7,59 +7,60 @@ import (
 	"net/url"
 	"path"
 
-	alert "github.com/bailey84j/acs-go/base/alert"
-	apitoken "github.com/bailey84j/acs-go/base/apitoken"
-	authprovider "github.com/bailey84j/acs-go/base/authprovider"
-	centralhealth "github.com/bailey84j/acs-go/base/centralhealth"
-	clustercve "github.com/bailey84j/acs-go/base/clustercve"
-	clusterinit "github.com/bailey84j/acs-go/base/clusterinit"
-	clusters "github.com/bailey84j/acs-go/base/clusters"
-	compliance "github.com/bailey84j/acs-go/base/compliance"
-	compliancemanagement "github.com/bailey84j/acs-go/base/compliancemanagement"
-	config "github.com/bailey84j/acs-go/base/config"
-	credentialexpiry "github.com/bailey84j/acs-go/base/credentialexpiry"
-	cve "github.com/bailey84j/acs-go/base/cve"
-	db "github.com/bailey84j/acs-go/base/db"
-	debug "github.com/bailey84j/acs-go/base/debug"
-	deployment "github.com/bailey84j/acs-go/base/deployment"
-	detection "github.com/bailey84j/acs-go/base/detection"
-	externalbackup "github.com/bailey84j/acs-go/base/externalbackup"
-	featureflag "github.com/bailey84j/acs-go/base/featureflag"
-	group "github.com/bailey84j/acs-go/base/group"
-	image "github.com/bailey84j/acs-go/base/image"
-	imagecve "github.com/bailey84j/acs-go/base/imagecve"
-	imageintegration "github.com/bailey84j/acs-go/base/imageintegration"
-	integrationhealth "github.com/bailey84j/acs-go/base/integrationhealth"
-	license "github.com/bailey84j/acs-go/base/license"
-	metadata "github.com/bailey84j/acs-go/base/metadata"
-	mitreattack "github.com/bailey84j/acs-go/base/mitreattack"
-	namespace "github.com/bailey84j/acs-go/base/namespace"
-	networkbaseline "github.com/bailey84j/acs-go/base/networkbaseline"
-	networkgraph "github.com/bailey84j/acs-go/base/networkgraph"
-	networkpolicy "github.com/bailey84j/acs-go/base/networkpolicy"
-	node "github.com/bailey84j/acs-go/base/node"
-	nodecve "github.com/bailey84j/acs-go/base/nodecve"
-	notifier "github.com/bailey84j/acs-go/base/notifier"
-	ping "github.com/bailey84j/acs-go/base/ping"
-	pod "github.com/bailey84j/acs-go/base/pod"
-	policy "github.com/bailey84j/acs-go/base/policy"
-	policycategory "github.com/bailey84j/acs-go/base/policycategory"
-	probeupload "github.com/bailey84j/acs-go/base/probeupload"
-	process "github.com/bailey84j/acs-go/base/process"
-	processbaseline "github.com/bailey84j/acs-go/base/processbaseline"
-	rbac "github.com/bailey84j/acs-go/base/rbac"
-	report "github.com/bailey84j/acs-go/base/report"
-	reportconfiguration "github.com/bailey84j/acs-go/base/reportconfiguration"
-	role "github.com/bailey84j/acs-go/base/role"
-	search "github.com/bailey84j/acs-go/base/search"
-	sensorupgrade "github.com/bailey84j/acs-go/base/sensorupgrade"
-	serviceaccount "github.com/bailey84j/acs-go/base/serviceaccount"
-	serviceidenity "github.com/bailey84j/acs-go/base/serviceidenity"
-	signatureintegration "github.com/bailey84j/acs-go/base/signatureintegration"
-	summary "github.com/bailey84j/acs-go/base/summary"
-	telemetry "github.com/bailey84j/acs-go/base/telemetry"
-	user "github.com/bailey84j/acs-go/base/user"
-	vulnerabilityrequest "github.com/bailey84j/acs-go/base/vulnerabilityrequest"
+	alert "github.com/bailey84j/acs-go/acs/base/apitoken"
+
+	apitoken "github.com/bailey84j/acs-go/acs/base/apitoken"
+	authprovider "github.com/bailey84j/acs-go/acs/base/authprovider"
+	centralhealth "github.com/bailey84j/acs-go/acs/base/centralhealth"
+	clustercve "github.com/bailey84j/acs-go/acs/base/clustercve"
+	clusterinit "github.com/bailey84j/acs-go/acs/base/clusterinit"
+	clusters "github.com/bailey84j/acs-go/acs/base/clusters"
+	compliance "github.com/bailey84j/acs-go/acs/base/compliance"
+	compliancemanagement "github.com/bailey84j/acs-go/acs/base/compliancemanagement"
+	config "github.com/bailey84j/acs-go/acs/base/config"
+	credentialexpiry "github.com/bailey84j/acs-go/acs/base/credentialexpiry"
+	cve "github.com/bailey84j/acs-go/acs/base/cve"
+	db "github.com/bailey84j/acs-go/acs/base/db"
+	debug "github.com/bailey84j/acs-go/acs/base/debug"
+	deployment "github.com/bailey84j/acs-go/acs/base/deployment"
+	detection "github.com/bailey84j/acs-go/acs/base/detection"
+	externalbackup "github.com/bailey84j/acs-go/acs/base/externalbackup"
+	featureflag "github.com/bailey84j/acs-go/acs/base/featureflag"
+	group "github.com/bailey84j/acs-go/acs/base/group"
+	image "github.com/bailey84j/acs-go/acs/base/image"
+	imagecve "github.com/bailey84j/acs-go/acs/base/imagecve"
+	imageintegration "github.com/bailey84j/acs-go/acs/base/imageintegration"
+	integrationhealth "github.com/bailey84j/acs-go/acs/base/integrationhealth"
+	license "github.com/bailey84j/acs-go/acs/base/license"
+	metadata "github.com/bailey84j/acs-go/acs/base/metadata"
+	mitreattack "github.com/bailey84j/acs-go/acs/base/mitreattack"
+	namespace "github.com/bailey84j/acs-go/acs/base/namespace"
+	networkbaseline "github.com/bailey84j/acs-go/acs/base/networkbaseline"
+	networkgraph "github.com/bailey84j/acs-go/acs/base/networkgraph"
+	networkpolicy "github.com/bailey84j/acs-go/acs/base/networkpolicy"
+	node "github.com/bailey84j/acs-go/acs/base/node"
+	nodecve "github.com/bailey84j/acs-go/acs/base/nodecve"
+	notifier "github.com/bailey84j/acs-go/acs/base/notifier"
+	ping "github.com/bailey84j/acs-go/acs/base/ping"
+	pod "github.com/bailey84j/acs-go/acs/base/pod"
+	policy "github.com/bailey84j/acs-go/acs/base/policy"
+	policycategory "github.com/bailey84j/acs-go/acs/base/policycategory"
+	probeupload "github.com/bailey84j/acs-go/acs/base/probeupload"
+	process "github.com/bailey84j/acs-go/acs/base/process"
+	processbaseline "github.com/bailey84j/acs-go/acs/base/processbaseline"
+	rbac "github.com/bailey84j/acs-go/acs/base/rbac"
+	report "github.com/bailey84j/acs-go/acs/base/report"
+	reportconfiguration "github.com/bailey84j/acs-go/acs/base/reportconfiguration"
+	role "github.com/bailey84j/acs-go/acs/base/role"
+	search "github.com/bailey84j/acs-go/acs/base/search"
+	sensorupgrade "github.com/bailey84j/acs-go/acs/base/sensorupgrade"
+	serviceaccount "github.com/bailey84j/acs-go/acs/base/serviceaccount"
+	serviceidenity "github.com/bailey84j/acs-go/acs/base/serviceidenity"
+	signatureintegration "github.com/bailey84j/acs-go/acs/base/signatureintegration"
+	summary "github.com/bailey84j/acs-go/acs/base/summary"
+	telemetry "github.com/bailey84j/acs-go/acs/base/telemetry"
+	user "github.com/bailey84j/acs-go/acs/base/user"
+	vulnerabilityrequest "github.com/bailey84j/acs-go/acs/base/vulnerabilityrequest"
 )
 
 const (
@@ -70,8 +71,8 @@ const (
 )
 
 type API struct {
-	client *Client
-
+	client               *Client
+	Alert                *alert.Alert
 	APIToken             *apitoken.APIToken
 	AuthProvider         *authprovider.AuthProvider
 	ExternalBackup       *externalbackup.ExternalBackup
@@ -159,9 +160,6 @@ func NewSnowAPI(endpoint string) API {
 	return API{
 		client: client,
 		Alert: &alert.Alert{
-			Client: client,
-		},
-		APIToken: &apitoken.APIToken{
 			Client: client,
 		},
 		APIToken: &apitoken.APIToken{

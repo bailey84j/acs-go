@@ -1,6 +1,3 @@
-module github.com/bailey84j/acs-go
+module github.com/bailey84j/acs-go/acs
 
-go 1.16
-
-require (
-)
+go 1.19

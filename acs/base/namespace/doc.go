@@ -1,1 +1,1 @@
-package Namespace
+package namespace

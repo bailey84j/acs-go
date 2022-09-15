@@ -1,1 +1,1 @@
-package APIToken
+package apitoken

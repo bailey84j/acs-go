@@ -1,1 +1,1 @@
-package Image
+package image

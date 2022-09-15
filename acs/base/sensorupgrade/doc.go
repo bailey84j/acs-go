@@ -1,1 +1,1 @@
-package SensorUpgrade
+package sensorupgrade

@@ -1,1 +1,1 @@
-package PolicyCategory
+package policycategory

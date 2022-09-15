@@ -1,1 +1,1 @@
-package NetworkGraph
+package networkgraph

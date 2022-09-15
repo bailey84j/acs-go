@@ -1,1 +1,1 @@
-package Detection
+package detection

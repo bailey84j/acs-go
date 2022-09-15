@@ -1,1 +1,1 @@
-package CredentialExpiry
+package credentialexpiry

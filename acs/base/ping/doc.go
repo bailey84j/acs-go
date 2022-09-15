@@ -1,1 +1,1 @@
-package Ping
+package ping

@@ -1,1 +1,1 @@
-package License
+package license

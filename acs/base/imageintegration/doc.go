@@ -1,1 +1,1 @@
-package ImageIntegration
+package imageintegration

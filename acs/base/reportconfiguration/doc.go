@@ -1,1 +1,1 @@
-package ReportConfiguration
+package reportconfiguration

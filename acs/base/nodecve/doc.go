@@ -1,1 +1,1 @@
-package NodeCVE
+package nodecve

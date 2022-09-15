@@ -1,6 +1,8 @@
 package alert
 
-import "github.com/bailey84j/acs-go"
+import (
+	acs "github.com/bailey84j/acs-go/acs"
+)
 
 type Alert struct {
 	Client acs.Client

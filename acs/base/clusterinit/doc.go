@@ -1,1 +1,1 @@
-package ClusterInit
+package clusterinit

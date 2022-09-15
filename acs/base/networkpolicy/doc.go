@@ -1,1 +1,1 @@
-package NetworkPolicy
+package networkpolicy

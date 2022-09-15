@@ -1,1 +1,1 @@
-package Debug
+package debug

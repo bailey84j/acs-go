@@ -1,1 +1,1 @@
-package IntegrationHealth
+package integrationhealth
