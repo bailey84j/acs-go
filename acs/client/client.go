@@ -23,7 +23,7 @@ type Client struct {
 	LogLevel string
 }
 
-func (c *Client) setAuth(req *http.Request) error {
+func (c *Client) SetAuth(req *http.Request) error {
 	req.SetBasicAuth(c.Username, c.Password)
 
 	if len(c.Username) > 0 && len(c.Password) > 0 {

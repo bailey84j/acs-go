@@ -1,17 +1,27 @@
 package telemetry
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type Telemetry struct {
 	Client client.Client
 }
+func (a Telemetry) GetTelemetryConfiguration(args map[string]interface{}) {
 
-func (a Telemetry) Get() {
+//  
+// NOT Required 
 
-}
 
-func (a Telemetry) Put() {
+
+
+    // GetResource()
+
+
+
+
 
 }

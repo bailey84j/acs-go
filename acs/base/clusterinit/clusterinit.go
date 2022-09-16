@@ -1,17 +1,42 @@
 package clusterinit
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type ClusterInit struct {
 	Client client.Client
 }
+func (a ClusterInit) GetCAConfig(args map[string]interface{}) {
 
-func (a ClusterInit) Get() {
+//  
+// NOT Required 
+
+
+
+
+    // GetCAConfigResource()
+
+
+
+
 
 }
+func (a ClusterInit) GetInitBundles(args map[string]interface{}) {
 
-func (a ClusterInit) Put() {
+//  
+// NOT Required 
+
+
+
+
+    // GetInitBundlesResource()
+
+
+
+
 
 }

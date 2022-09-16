@@ -1,17 +1,42 @@
 package node
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type Node struct {
 	Client client.Client
 }
+func (a Node) ListNodes(clusterId string,args map[string]interface{}) {
 
-func (a Node) Get() {
+//  
+// NOT Required []
+
+
+
+
+    // ListResource()
+
+
+
+
 
 }
+func (a Node) GetNode(clusterId string,nodeId string,args map[string]interface{}) {
 
-func (a Node) Put() {
+//  
+// NOT Required []
+
+
+
+
+    // GetResource()
+
+
+
+
 
 }

@@ -1,17 +1,27 @@
 package ping
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type Ping struct {
 	Client client.Client
 }
+func (a Ping) Ping(args map[string]interface{}) {
 
-func (a Ping) Get() {
+//  
+// NOT Required 
 
-}
 
-func (a Ping) Put() {
+
+
+    // Resource()
+
+
+
+
 
 }

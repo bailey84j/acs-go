@@ -1,17 +1,57 @@
 package config
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type Config struct {
 	Client client.Client
 }
+func (a Config) GetConfig(args map[string]interface{}) {
 
-func (a Config) Get() {
+//  
+// NOT Required 
+
+
+
+
+    // GetResource()
+
+
+
+
 
 }
+func (a Config) GetPrivateConfig(args map[string]interface{}) {
 
-func (a Config) Put() {
+//  
+// NOT Required 
+
+
+
+
+    // GetPrivateResource()
+
+
+
+
+
+}
+func (a Config) GetPublicConfig(args map[string]interface{}) {
+
+//  
+// NOT Required 
+
+
+
+
+    // GetPublicResource()
+
+
+
+
 
 }

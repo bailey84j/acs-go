@@ -1,17 +1,27 @@
 package sensorupgrade
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type SensorUpgrade struct {
 	Client client.Client
 }
+func (a SensorUpgrade) GetSensorUpgradeConfig(args map[string]interface{}) {
 
-func (a SensorUpgrade) Get() {
+//  
+// NOT Required 
 
-}
 
-func (a SensorUpgrade) Put() {
+
+
+    // GetResource()
+
+
+
+
 
 }

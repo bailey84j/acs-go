@@ -1,17 +1,12 @@
 package nodecve
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type NodeCVE struct {
 	Client client.Client
-}
-
-func (a NodeCVE) Get() {
-
-}
-
-func (a NodeCVE) Put() {
-
 }

@@ -1,17 +1,12 @@
 package detection
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type Detection struct {
 	Client client.Client
-}
-
-func (a Detection) Get() {
-
-}
-
-func (a Detection) Put() {
-
 }

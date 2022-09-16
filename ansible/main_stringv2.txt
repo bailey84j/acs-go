@@ -1,4 +1,6 @@
+alert "github.com/bailey84j/acs-go/acs/base/alert"
 apitoken "github.com/bailey84j/acs-go/acs/base/apitoken"
+auth "github.com/bailey84j/acs-go/acs/base/auth"
 authprovider "github.com/bailey84j/acs-go/acs/base/authprovider"
 externalbackup "github.com/bailey84j/acs-go/acs/base/externalbackup"
 centralhealth "github.com/bailey84j/acs-go/acs/base/centralhealth"
@@ -42,9 +44,10 @@ reportconfiguration "github.com/bailey84j/acs-go/acs/base/reportconfiguration"
 report "github.com/bailey84j/acs-go/acs/base/report"
 role "github.com/bailey84j/acs-go/acs/base/role"
 search "github.com/bailey84j/acs-go/acs/base/search"
+secret "github.com/bailey84j/acs-go/acs/base/secret"
 sensorupgrade "github.com/bailey84j/acs-go/acs/base/sensorupgrade"
-serviceaccount "github.com/bailey84j/acs-go/acs/base/serviceaccount"
-serviceidenity "github.com/bailey84j/acs-go/acs/base/serviceidenity"
+account "github.com/bailey84j/acs-go/acs/base/account"
+identity "github.com/bailey84j/acs-go/acs/base/identity"
 signatureintegration "github.com/bailey84j/acs-go/acs/base/signatureintegration"
 summary "github.com/bailey84j/acs-go/acs/base/summary"
 telemetry "github.com/bailey84j/acs-go/acs/base/telemetry"
@@ -53,7 +56,9 @@ vulnerabilityrequest "github.com/bailey84j/acs-go/acs/base/vulnerabilityrequest"
 
 --------------------------------------------
 
+Alert                *alert.Alert
 APIToken                *apitoken.APIToken
+Auth                *auth.Auth
 AuthProvider                *authprovider.AuthProvider
 ExternalBackup                *externalbackup.ExternalBackup
 CentralHealth                *centralhealth.CentralHealth
@@ -92,14 +97,15 @@ Policy                *policy.Policy
 ProbeUpload                *probeupload.ProbeUpload
 ProcessBaseline                *processbaseline.ProcessBaseline
 Process                *process.Process
-RBAC                *rbac.RBAC
+Rbac                *rbac.Rbac
 ReportConfiguration                *reportconfiguration.ReportConfiguration
 Report                *report.Report
 Role                *role.Role
 Search                *search.Search
+Secret                *secret.Secret
 SensorUpgrade                *sensorupgrade.SensorUpgrade
-ServiceAccount                *serviceaccount.ServiceAccount
-ServiceIdenity                *serviceidenity.ServiceIdenity
+Account                *account.Account
+Identity                *identity.Identity
 SignatureIntegration                *signatureintegration.SignatureIntegration
 Summary                *summary.Summary
 Telemetry                *telemetry.Telemetry
@@ -107,7 +113,13 @@ User                *user.User
 VulnerabilityRequest                *vulnerabilityrequest.VulnerabilityRequest
 
 ---------------------------------------------
+Alert : &alert.Alert {
+			Client: client,
+		},
 APIToken : &apitoken.APIToken {
+			Client: client,
+		},
+Auth : &auth.Auth {
 			Client: client,
 		},
 AuthProvider : &authprovider.AuthProvider {
@@ -224,7 +236,7 @@ ProcessBaseline : &processbaseline.ProcessBaseline {
 Process : &process.Process {
 			Client: client,
 		},
-RBAC : &rbac.RBAC {
+Rbac : &rbac.Rbac {
 			Client: client,
 		},
 ReportConfiguration : &reportconfiguration.ReportConfiguration {
@@ -239,13 +251,16 @@ Role : &role.Role {
 Search : &search.Search {
 			Client: client,
 		},
+Secret : &secret.Secret {
+			Client: client,
+		},
 SensorUpgrade : &sensorupgrade.SensorUpgrade {
 			Client: client,
 		},
-ServiceAccount : &serviceaccount.ServiceAccount {
+Account : &account.Account {
 			Client: client,
 		},
-ServiceIdenity : &serviceidenity.ServiceIdenity {
+Identity : &identity.Identity {
 			Client: client,
 		},
 SignatureIntegration : &signatureintegration.SignatureIntegration {

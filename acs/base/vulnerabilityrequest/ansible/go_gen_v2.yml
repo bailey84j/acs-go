@@ -1,0 +1,78 @@
+---
+- name: go_gen
+  hosts: localhost
+  connection: local
+  vars:
+    acs_paths: []
+    methods:
+      - get
+      - delete
+  tasks:
+
+
+  - name: import_vars
+    ansible.builtin.set_fact:
+      swaggerFile: "{{ lookup('file','swagger.json') | from_json }}"
+
+  - name: Set acs_paths_raw
+    set_fact:
+      acs_paths_raw: "{{ swaggerFile | json_query(jmesquery) | unique }}"
+    vars:
+      jmesquery: 'paths.*.*.tags[][]'
+
+  - name: Set acs_paths_dupe
+    set_fact:
+      acs_paths: "{{ acs_paths }} + [ '{{ item | replace('Service','') }}' ]"
+    with_items: "{{ acs_paths_raw }}"
+
+  - name: Set acs_paths
+    debug:
+      var: acs_paths
+
+  - name: Create main_strings files
+    ansible.builtin.template:
+      src: go_main_stringsv2.j2
+      dest: "main_stringv2.txt"
+
+
+  - name: Set acs_paths_dupe
+    set_fact:
+      acs_methods_raw: "{{ acs_methods_raw | default([]) + [{'name': item[1], 'func': swaggerFile | json_query(jmesquery) }] }}"
+    vars:
+      jmesquery: "paths.*.{{ item[0] }} | [?contains(tags, '{{item[1]}}Service')]"
+    with_nested:
+      - "{{ methods }}"
+      - "{{ acs_paths }}"
+  
+  # region code gen
+  #- name: create folders for each path
+  #  file:
+  #    path: "../acs/base/{{ item | lower }}"
+  #    state: directory
+  #    mode: 0775
+  #    recurse: true
+  #  with_items: "{{ acs_paths }}"
+
+  - name: Create golang
+    ansible.builtin.template:
+      src: go_basev2.j2
+      dest: "../acs/base/{{ item | lower }}/{{ item | lower }}.go"
+    with_items:
+      - "{{ acs_paths }}"
+
+  - name: Create doc files
+    ansible.builtin.template:
+      src: go_doc.j2
+      dest: "../acs/base/{{ item | lower }}/doc.go"
+    with_items: "{{ acs_paths }}"
+
+  # region test_tables gen
+  - name: create folders for each path
+    file:
+      path: "../acs/test_tables/{{ item | lower }}"
+      state: directory
+      mode: 0775
+      recurse: true
+    with_items: "{{ acs_paths }}"
+
+  # endregion test_tables gen

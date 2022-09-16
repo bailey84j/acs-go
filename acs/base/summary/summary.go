@@ -1,17 +1,27 @@
 package summary
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type Summary struct {
 	Client client.Client
 }
+func (a Summary) GetSummaryCounts(args map[string]interface{}) {
 
-func (a Summary) Get() {
+//  
+// NOT Required 
 
-}
 
-func (a Summary) Put() {
+
+
+    // GetResource()
+
+
+
+
 
 }

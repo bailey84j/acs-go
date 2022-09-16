@@ -1,17 +1,27 @@
 package networkbaseline
 
 import (
-    client "github.com/bailey84j/acs-go/acs/base/client"
+    "fmt"
+
+    client "github.com/bailey84j/acs-go/acs/client"
+    tools "github.com/bailey84j/acs-go/acs/tools"
 )
 
 type NetworkBaseline struct {
 	Client client.Client
 }
+func (a NetworkBaseline) GetNetworkBaseline(id string,args map[string]interface{}) {
 
-func (a NetworkBaseline) Get() {
+//  
+// NOT Required []
 
-}
 
-func (a NetworkBaseline) Put() {
+
+
+    // GetResource()
+
+
+
+
 
 }
