@@ -1,4 +1,4 @@
-package acs
+package client
 
 import (
 	"fmt"
