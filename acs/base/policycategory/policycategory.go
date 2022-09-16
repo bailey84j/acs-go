@@ -1,9 +1,11 @@
 package policycategory
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type PolicyCategory struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a PolicyCategory) Get() {

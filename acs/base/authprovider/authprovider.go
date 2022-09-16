@@ -1,9 +1,11 @@
 package authprovider
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type AuthProvider struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a AuthProvider) Get() {

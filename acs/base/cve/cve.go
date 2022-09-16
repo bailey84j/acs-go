@@ -1,9 +1,11 @@
 package cve
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type CVE struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a CVE) Get() {

@@ -1,9 +1,11 @@
 package signatureintegration
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type SignatureIntegration struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a SignatureIntegration) Get() {

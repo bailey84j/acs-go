@@ -1,9 +1,11 @@
 package db
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type DB struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a DB) Get() {

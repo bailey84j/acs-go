@@ -1,9 +1,11 @@
 package license
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type License struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a License) Get() {

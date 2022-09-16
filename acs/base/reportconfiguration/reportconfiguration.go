@@ -1,9 +1,11 @@
 package reportconfiguration
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type ReportConfiguration struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a ReportConfiguration) Get() {

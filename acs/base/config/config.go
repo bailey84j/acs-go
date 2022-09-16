@@ -1,9 +1,11 @@
 package config
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type Config struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a Config) Get() {

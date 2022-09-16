@@ -1,9 +1,11 @@
 package {{ item | lower}}
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type {{ item }} struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a {{ item }}) Get() {

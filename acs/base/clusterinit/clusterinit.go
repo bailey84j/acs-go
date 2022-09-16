@@ -1,9 +1,11 @@
 package clusterinit
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type ClusterInit struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a ClusterInit) Get() {

@@ -1,9 +1,11 @@
 package imagecve
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type ImageCVE struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a ImageCVE) Get() {

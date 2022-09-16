@@ -1,9 +1,11 @@
 package clusters
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type Clusters struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a Clusters) Get() {

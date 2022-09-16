@@ -1,9 +1,11 @@
 package mitreattack
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type MitreAttack struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a MitreAttack) Get() {

@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"path"
 
-	alert "github.com/bailey84j/acs-go/acs/base/apitoken"
+	alert "github.com/bailey84j/acs-go/acs/base/alert"
 
 	apitoken "github.com/bailey84j/acs-go/acs/base/apitoken"
 	authprovider "github.com/bailey84j/acs-go/acs/base/authprovider"

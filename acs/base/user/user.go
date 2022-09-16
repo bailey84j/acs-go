@@ -1,9 +1,11 @@
 package user
 
-import "github.com/bailey84j/acs-go/acs"
+import (
+    client "github.com/bailey84j/acs-go/acs/base/client"
+)
 
 type User struct {
-	Client acs.Client
+	Client client.Client
 }
 
 func (a User) Get() {
