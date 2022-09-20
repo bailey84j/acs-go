@@ -120,7 +120,7 @@ uriPath := "/v1/simpleaccessscopes/" + id + ""
 func (a Role) ComputeEffectiveAccessScope(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("detail_string",args)
+    ok := tools.CheckFieldsValid("detail-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

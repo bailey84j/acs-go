@@ -17,7 +17,7 @@ type CredentialExpiry struct {
 func (a CredentialExpiry) GetCertExpiry(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("component_string",args)
+    ok := tools.CheckFieldsValid("component-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

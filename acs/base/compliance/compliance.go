@@ -15,7 +15,7 @@ type Compliance struct {
 func (a Compliance) GetAggregatedResults(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("groupBy_array,unit_string,where_query_string,where_pagination_limit_integer,where_pagination_offset_integer,where_pagination_sortOption_field_string,where_pagination_sortOption_reversed_boolean",args)
+    ok := tools.CheckFieldsValid("groupBy-array,unit-string,where_query-string,where_pagination_limit-integer,where_pagination_offset-integer,where_pagination_sortOption_field-string,where_pagination_sortOption_reversed-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -27,7 +27,7 @@ uriPath := "/v1/compliance/aggregatedresults"
 func (a Compliance) GetRunResults(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("clusterId_string,standardId_string,runId_string",args)
+    ok := tools.CheckFieldsValid("clusterId-string,standardId-string,runId-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

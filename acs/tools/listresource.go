@@ -2,6 +2,7 @@ package tools
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -39,12 +40,22 @@ func GetResource(client *client.Client, endpoint string, args ...map[string]inte
 		return nil, fmt.Errorf("error creating new request: %s", err)
 	}
 
-	client.SetAuth(req)
+	client.Transport = &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	err = client.SetAuth(req)
+	if err != nil {
+		return nil, fmt.Errorf("error set auth: %s", err)
+	}
+
+	fmt.Printf("na: ")
 
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("HTTP request failed with error: %s", err)
 	}
+
+	fmt.Printf("\ncode: %d\n", res.StatusCode)
 
 	if res.StatusCode != http.StatusOK {
 		return nil, ResponseError(

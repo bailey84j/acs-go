@@ -15,7 +15,7 @@ type NetworkPolicy struct {
 func (a NetworkPolicy) GetNetworkPolicies(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("clusterId_string,deploymentQuery_string,namespace_string",args)
+    ok := tools.CheckFieldsValid("clusterId-string,deploymentQuery-string,namespace-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -45,7 +45,7 @@ uriPath := "/v1/networkpolicies/baselinecomparison/" + id + ""
 func (a NetworkPolicy) GetNetworkGraph(clusterId string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,includePorts_boolean,scope_query_string",args)
+    ok := tools.CheckFieldsValid("query-string,includePorts-boolean,scope_query-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -57,7 +57,7 @@ uriPath := "/v1/networkpolicies/cluster/" + clusterId + ""
 func (a NetworkPolicy) GenerateNetworkPolicies(clusterId string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,deleteExisting_string,networkDataSince_string,includePorts_boolean",args)
+    ok := tools.CheckFieldsValid("query-string,deleteExisting-string,networkDataSince-string,includePorts-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -69,7 +69,7 @@ uriPath := "/v1/networkpolicies/generate/" + clusterId + ""
 func (a NetworkPolicy) GetNetworkGraphEpoch(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("clusterId_string",args)
+    ok := tools.CheckFieldsValid("clusterId-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -146,7 +146,7 @@ uriPath := "/v1/networkpolicies/generate/baseline/" + deploymentId + ""
 func (a NetworkPolicy) SimulateNetworkGraph(clusterId string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,includePorts_boolean,includeNodeDiff_boolean,scope_query_string",args)
+    ok := tools.CheckFieldsValid("query-string,includePorts-boolean,includeNodeDiff-boolean,scope_query-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -158,7 +158,7 @@ uriPath := "/v1/networkpolicies/simulate/" + clusterId + ""
 func (a NetworkPolicy) SendNetworkPolicyYAML(clusterId string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("notifierIds_array",args)
+    ok := tools.CheckFieldsValid("notifierIds-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

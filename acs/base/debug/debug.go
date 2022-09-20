@@ -28,7 +28,7 @@ uriPath := "/v1/debug/authz/trace"
 func (a Debug) GetLogLevel(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("modules_array",args)
+    ok := tools.CheckFieldsValid("modules-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

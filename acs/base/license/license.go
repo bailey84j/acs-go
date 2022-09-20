@@ -33,7 +33,7 @@ uriPath := "/v1/licenses/expiration"
 func (a License) GetLicenses(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("active_boolean,statuses_array",args)
+    ok := tools.CheckFieldsValid("active-boolean,statuses-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

@@ -15,7 +15,7 @@ type NetworkGraph struct {
 func (a NetworkGraph) GetNetworkGraph(clusterId string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,since_string,includePorts_boolean,scope_query_string",args)
+    ok := tools.CheckFieldsValid("query-string,since-string,includePorts-boolean,scope_query-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -27,7 +27,7 @@ uriPath := "/v1/networkgraph/cluster/" + clusterId + ""
 func (a NetworkGraph) GetExternalNetworkEntities(clusterId string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string",args)
+    ok := tools.CheckFieldsValid("query-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

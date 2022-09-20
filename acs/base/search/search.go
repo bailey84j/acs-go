@@ -15,7 +15,7 @@ type Search struct {
 func (a Search) Search(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,categories_array",args)
+    ok := tools.CheckFieldsValid("query-string,categories-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -27,7 +27,7 @@ uriPath := "/v1/search"
 func (a Search) Autocomplete(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,categories_array",args)
+    ok := tools.CheckFieldsValid("query-string,categories-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -39,7 +39,7 @@ uriPath := "/v1/search/autocomplete"
 func (a Search) Options(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("categories_array",args)
+    ok := tools.CheckFieldsValid("categories-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

@@ -7,61 +7,62 @@ import (
 	"net/url"
 	"path"
 
-    alert "github.com/bailey84j/acs-go/acs/base/alert"
-    apitoken "github.com/bailey84j/acs-go/acs/base/apitoken"
-    auth "github.com/bailey84j/acs-go/acs/base/auth"
-    authprovider "github.com/bailey84j/acs-go/acs/base/authprovider"
-    externalbackup "github.com/bailey84j/acs-go/acs/base/externalbackup"
-    centralhealth "github.com/bailey84j/acs-go/acs/base/centralhealth"
-    clusterinit "github.com/bailey84j/acs-go/acs/base/clusterinit"
-    clusters "github.com/bailey84j/acs-go/acs/base/clusters"
-    compliancemanagement "github.com/bailey84j/acs-go/acs/base/compliancemanagement"
-    compliance "github.com/bailey84j/acs-go/acs/base/compliance"
-    config "github.com/bailey84j/acs-go/acs/base/config"
-    credentialexpiry "github.com/bailey84j/acs-go/acs/base/credentialexpiry"
-    clustercve "github.com/bailey84j/acs-go/acs/base/clustercve"
-    cve "github.com/bailey84j/acs-go/acs/base/cve"
-    imagecve "github.com/bailey84j/acs-go/acs/base/imagecve"
-    nodecve "github.com/bailey84j/acs-go/acs/base/nodecve"
-    db "github.com/bailey84j/acs-go/acs/base/db"
-    debug "github.com/bailey84j/acs-go/acs/base/debug"
-    deployment "github.com/bailey84j/acs-go/acs/base/deployment"
-    detection "github.com/bailey84j/acs-go/acs/base/detection"
-    featureflag "github.com/bailey84j/acs-go/acs/base/featureflag"
-    group "github.com/bailey84j/acs-go/acs/base/group"
-    imageintegration "github.com/bailey84j/acs-go/acs/base/imageintegration"
-    image "github.com/bailey84j/acs-go/acs/base/image"
-    integrationhealth "github.com/bailey84j/acs-go/acs/base/integrationhealth"
-    license "github.com/bailey84j/acs-go/acs/base/license"
-    metadata "github.com/bailey84j/acs-go/acs/base/metadata"
-    mitreattack "github.com/bailey84j/acs-go/acs/base/mitreattack"
-    namespace "github.com/bailey84j/acs-go/acs/base/namespace"
-    networkbaseline "github.com/bailey84j/acs-go/acs/base/networkbaseline"
-    networkgraph "github.com/bailey84j/acs-go/acs/base/networkgraph"
-    networkpolicy "github.com/bailey84j/acs-go/acs/base/networkpolicy"
-    node "github.com/bailey84j/acs-go/acs/base/node"
-    notifier "github.com/bailey84j/acs-go/acs/base/notifier"
-    ping "github.com/bailey84j/acs-go/acs/base/ping"
-    pod "github.com/bailey84j/acs-go/acs/base/pod"
-    policycategory "github.com/bailey84j/acs-go/acs/base/policycategory"
-    policy "github.com/bailey84j/acs-go/acs/base/policy"
-    probeupload "github.com/bailey84j/acs-go/acs/base/probeupload"
-    processbaseline "github.com/bailey84j/acs-go/acs/base/processbaseline"
-    process "github.com/bailey84j/acs-go/acs/base/process"
-    rbac "github.com/bailey84j/acs-go/acs/base/rbac"
-    reportconfiguration "github.com/bailey84j/acs-go/acs/base/reportconfiguration"
-    report "github.com/bailey84j/acs-go/acs/base/report"
-    role "github.com/bailey84j/acs-go/acs/base/role"
-    search "github.com/bailey84j/acs-go/acs/base/search"
-    secret "github.com/bailey84j/acs-go/acs/base/secret"
-    sensorupgrade "github.com/bailey84j/acs-go/acs/base/sensorupgrade"
-    account "github.com/bailey84j/acs-go/acs/base/account"
-    identity "github.com/bailey84j/acs-go/acs/base/identity"
-    signatureintegration "github.com/bailey84j/acs-go/acs/base/signatureintegration"
-    summary "github.com/bailey84j/acs-go/acs/base/summary"
-    telemetry "github.com/bailey84j/acs-go/acs/base/telemetry"
-    user "github.com/bailey84j/acs-go/acs/base/user"
-    vulnerabilityrequest "github.com/bailey84j/acs-go/acs/base/vulnerabilityrequest"
+	account "github.com/bailey84j/acs-go/acs/base/account"
+	alert "github.com/bailey84j/acs-go/acs/base/alert"
+	apitoken "github.com/bailey84j/acs-go/acs/base/apitoken"
+	auth "github.com/bailey84j/acs-go/acs/base/auth"
+	authprovider "github.com/bailey84j/acs-go/acs/base/authprovider"
+	centralhealth "github.com/bailey84j/acs-go/acs/base/centralhealth"
+	clustercve "github.com/bailey84j/acs-go/acs/base/clustercve"
+	clusterinit "github.com/bailey84j/acs-go/acs/base/clusterinit"
+	clusters "github.com/bailey84j/acs-go/acs/base/clusters"
+	compliance "github.com/bailey84j/acs-go/acs/base/compliance"
+	compliancemanagement "github.com/bailey84j/acs-go/acs/base/compliancemanagement"
+	config "github.com/bailey84j/acs-go/acs/base/config"
+	credentialexpiry "github.com/bailey84j/acs-go/acs/base/credentialexpiry"
+	cve "github.com/bailey84j/acs-go/acs/base/cve"
+	db "github.com/bailey84j/acs-go/acs/base/db"
+	debug "github.com/bailey84j/acs-go/acs/base/debug"
+	deployment "github.com/bailey84j/acs-go/acs/base/deployment"
+	detection "github.com/bailey84j/acs-go/acs/base/detection"
+	externalbackup "github.com/bailey84j/acs-go/acs/base/externalbackup"
+	featureflag "github.com/bailey84j/acs-go/acs/base/featureflag"
+	group "github.com/bailey84j/acs-go/acs/base/group"
+	identity "github.com/bailey84j/acs-go/acs/base/identity"
+	image "github.com/bailey84j/acs-go/acs/base/image"
+	imagecve "github.com/bailey84j/acs-go/acs/base/imagecve"
+	imageintegration "github.com/bailey84j/acs-go/acs/base/imageintegration"
+	integrationhealth "github.com/bailey84j/acs-go/acs/base/integrationhealth"
+	license "github.com/bailey84j/acs-go/acs/base/license"
+	metadata "github.com/bailey84j/acs-go/acs/base/metadata"
+	mitreattack "github.com/bailey84j/acs-go/acs/base/mitreattack"
+	namespace "github.com/bailey84j/acs-go/acs/base/namespace"
+	networkbaseline "github.com/bailey84j/acs-go/acs/base/networkbaseline"
+	networkgraph "github.com/bailey84j/acs-go/acs/base/networkgraph"
+	networkpolicy "github.com/bailey84j/acs-go/acs/base/networkpolicy"
+	node "github.com/bailey84j/acs-go/acs/base/node"
+	nodecve "github.com/bailey84j/acs-go/acs/base/nodecve"
+	notifier "github.com/bailey84j/acs-go/acs/base/notifier"
+	ping "github.com/bailey84j/acs-go/acs/base/ping"
+	pod "github.com/bailey84j/acs-go/acs/base/pod"
+	policy "github.com/bailey84j/acs-go/acs/base/policy"
+	policycategory "github.com/bailey84j/acs-go/acs/base/policycategory"
+	probeupload "github.com/bailey84j/acs-go/acs/base/probeupload"
+	process "github.com/bailey84j/acs-go/acs/base/process"
+	processbaseline "github.com/bailey84j/acs-go/acs/base/processbaseline"
+	rbac "github.com/bailey84j/acs-go/acs/base/rbac"
+	report "github.com/bailey84j/acs-go/acs/base/report"
+	reportconfiguration "github.com/bailey84j/acs-go/acs/base/reportconfiguration"
+	role "github.com/bailey84j/acs-go/acs/base/role"
+	search "github.com/bailey84j/acs-go/acs/base/search"
+	secret "github.com/bailey84j/acs-go/acs/base/secret"
+	sensorupgrade "github.com/bailey84j/acs-go/acs/base/sensorupgrade"
+	signatureintegration "github.com/bailey84j/acs-go/acs/base/signatureintegration"
+	summary "github.com/bailey84j/acs-go/acs/base/summary"
+	telemetry "github.com/bailey84j/acs-go/acs/base/telemetry"
+	user "github.com/bailey84j/acs-go/acs/base/user"
+	vulnerabilityrequest "github.com/bailey84j/acs-go/acs/base/vulnerabilityrequest"
+	client "github.com/bailey84j/acs-go/acs/client"
 )
 
 const (
@@ -73,61 +74,62 @@ const (
 
 type API struct {
 	client               *client.Client
-    Alert                *alert.Alert
-    APIToken                *apitoken.APIToken
-    Auth                *auth.Auth
-    AuthProvider                *authprovider.AuthProvider
-    ExternalBackup                *externalbackup.ExternalBackup
-    CentralHealth                *centralhealth.CentralHealth
-    ClusterInit                *clusterinit.ClusterInit
-    Clusters                *clusters.Clusters
-    ComplianceManagement                *compliancemanagement.ComplianceManagement
-    Compliance                *compliance.Compliance
-    Config                *config.Config
-    CredentialExpiry                *credentialexpiry.CredentialExpiry
-    ClusterCVE                *clustercve.ClusterCVE
-    CVE                *cve.CVE
-    ImageCVE                *imagecve.ImageCVE
-    NodeCVE                *nodecve.NodeCVE
-    DB                *db.DB
-    Debug                *debug.Debug
-    Deployment                *deployment.Deployment
-    Detection                *detection.Detection
-    FeatureFlag                *featureflag.FeatureFlag
-    Group                *group.Group
-    ImageIntegration                *imageintegration.ImageIntegration
-    Image                *image.Image
-    IntegrationHealth                *integrationhealth.IntegrationHealth
-    License                *license.License
-    Metadata                *metadata.Metadata
-    MitreAttack                *mitreattack.MitreAttack
-    Namespace                *namespace.Namespace
-    NetworkBaseline                *networkbaseline.NetworkBaseline
-    NetworkGraph                *networkgraph.NetworkGraph
-    NetworkPolicy                *networkpolicy.NetworkPolicy
-    Node                *node.Node
-    Notifier                *notifier.Notifier
-    Ping                *ping.Ping
-    Pod                *pod.Pod
-    PolicyCategory                *policycategory.PolicyCategory
-    Policy                *policy.Policy
-    ProbeUpload                *probeupload.ProbeUpload
-    ProcessBaseline                *processbaseline.ProcessBaseline
-    Process                *process.Process
-    Rbac                *rbac.Rbac
-    ReportConfiguration                *reportconfiguration.ReportConfiguration
-    Report                *report.Report
-    Role                *role.Role
-    Search                *search.Search
-    Secret                *secret.Secret
-    SensorUpgrade                *sensorupgrade.SensorUpgrade
-    Account                *account.Account
-    Identity                *identity.Identity
-    SignatureIntegration                *signatureintegration.SignatureIntegration
-    Summary                *summary.Summary
-    Telemetry                *telemetry.Telemetry
-    User                *user.User
-    VulnerabilityRequest                *vulnerabilityrequest.VulnerabilityRequest
+	Alert                *alert.Alert
+	APIToken             *apitoken.APIToken
+	Auth                 *auth.Auth
+	AuthProvider         *authprovider.AuthProvider
+	ExternalBackup       *externalbackup.ExternalBackup
+	CentralHealth        *centralhealth.CentralHealth
+	ClusterInit          *clusterinit.ClusterInit
+	Clusters             *clusters.Clusters
+	ComplianceManagement *compliancemanagement.ComplianceManagement
+	Compliance           *compliance.Compliance
+	Config               *config.Config
+	CredentialExpiry     *credentialexpiry.CredentialExpiry
+	ClusterCVE           *clustercve.ClusterCVE
+	CVE                  *cve.CVE
+	ImageCVE             *imagecve.ImageCVE
+	NodeCVE              *nodecve.NodeCVE
+	DB                   *db.DB
+	Debug                *debug.Debug
+	Deployment           *deployment.Deployment
+	Detection            *detection.Detection
+	FeatureFlag          *featureflag.FeatureFlag
+	Group                *group.Group
+	ImageIntegration     *imageintegration.ImageIntegration
+	Image                *image.Image
+	IntegrationHealth    *integrationhealth.IntegrationHealth
+	License              *license.License
+	Metadata             *metadata.Metadata
+	MitreAttack          *mitreattack.MitreAttack
+	Namespace            *namespace.Namespace
+	NetworkBaseline      *networkbaseline.NetworkBaseline
+	NetworkGraph         *networkgraph.NetworkGraph
+	NetworkPolicy        *networkpolicy.NetworkPolicy
+	Node                 *node.Node
+	Notifier             *notifier.Notifier
+	Ping                 *ping.Ping
+	Pod                  *pod.Pod
+	PolicyCategory       *policycategory.PolicyCategory
+	Policy               *policy.Policy
+	ProbeUpload          *probeupload.ProbeUpload
+	ProcessBaseline      *processbaseline.ProcessBaseline
+	Process              *process.Process
+	Rbac                 *rbac.Rbac
+	ReportConfiguration  *reportconfiguration.ReportConfiguration
+	Report               *report.Report
+	Role                 *role.Role
+	Search               *search.Search
+	Secret               *secret.Secret
+	SensorUpgrade        *sensorupgrade.SensorUpgrade
+	Account              *account.Account
+	Identity             *identity.Identity
+	SignatureIntegration *signatureintegration.SignatureIntegration
+	Summary              *summary.Summary
+	Telemetry            *telemetry.Telemetry
+	User                 *user.User
+	VulnerabilityRequest *vulnerabilityrequest.VulnerabilityRequest
+}
 
 // Authenticate is used to set and store Basic Auth for this client instance
 func (a *API) Authenticate(username, password string) error {
@@ -161,169 +163,169 @@ func NewACSAPI(endpoint string) API {
 
 	return API{
 		client: client,
-        Alert : &alert.Alert {
+		Alert: &alert.Alert{
+			Client: client,
+		},
+		APIToken: &apitoken.APIToken{
 			Client: *client,
 		},
-        APIToken : &apitoken.APIToken {
+		Auth: &auth.Auth{
 			Client: *client,
 		},
-        Auth : &auth.Auth {
+		AuthProvider: &authprovider.AuthProvider{
 			Client: *client,
 		},
-        AuthProvider : &authprovider.AuthProvider {
+		ExternalBackup: &externalbackup.ExternalBackup{
 			Client: *client,
 		},
-        ExternalBackup : &externalbackup.ExternalBackup {
+		CentralHealth: &centralhealth.CentralHealth{
 			Client: *client,
 		},
-        CentralHealth : &centralhealth.CentralHealth {
+		ClusterInit: &clusterinit.ClusterInit{
 			Client: *client,
 		},
-        ClusterInit : &clusterinit.ClusterInit {
+		Clusters: &clusters.Clusters{
 			Client: *client,
 		},
-        Clusters : &clusters.Clusters {
+		ComplianceManagement: &compliancemanagement.ComplianceManagement{
 			Client: *client,
 		},
-        ComplianceManagement : &compliancemanagement.ComplianceManagement {
+		Compliance: &compliance.Compliance{
 			Client: *client,
 		},
-        Compliance : &compliance.Compliance {
+		Config: &config.Config{
 			Client: *client,
 		},
-        Config : &config.Config {
+		CredentialExpiry: &credentialexpiry.CredentialExpiry{
 			Client: *client,
 		},
-        CredentialExpiry : &credentialexpiry.CredentialExpiry {
+		ClusterCVE: &clustercve.ClusterCVE{
 			Client: *client,
 		},
-        ClusterCVE : &clustercve.ClusterCVE {
+		CVE: &cve.CVE{
 			Client: *client,
 		},
-        CVE : &cve.CVE {
+		ImageCVE: &imagecve.ImageCVE{
 			Client: *client,
 		},
-        ImageCVE : &imagecve.ImageCVE {
+		NodeCVE: &nodecve.NodeCVE{
 			Client: *client,
 		},
-        NodeCVE : &nodecve.NodeCVE {
+		DB: &db.DB{
 			Client: *client,
 		},
-        DB : &db.DB {
+		Debug: &debug.Debug{
 			Client: *client,
 		},
-        Debug : &debug.Debug {
+		Deployment: &deployment.Deployment{
 			Client: *client,
 		},
-        Deployment : &deployment.Deployment {
+		Detection: &detection.Detection{
 			Client: *client,
 		},
-        Detection : &detection.Detection {
+		FeatureFlag: &featureflag.FeatureFlag{
 			Client: *client,
 		},
-        FeatureFlag : &featureflag.FeatureFlag {
+		Group: &group.Group{
 			Client: *client,
 		},
-        Group : &group.Group {
+		ImageIntegration: &imageintegration.ImageIntegration{
 			Client: *client,
 		},
-        ImageIntegration : &imageintegration.ImageIntegration {
+		Image: &image.Image{
 			Client: *client,
 		},
-        Image : &image.Image {
+		IntegrationHealth: &integrationhealth.IntegrationHealth{
 			Client: *client,
 		},
-        IntegrationHealth : &integrationhealth.IntegrationHealth {
+		License: &license.License{
 			Client: *client,
 		},
-        License : &license.License {
+		Metadata: &metadata.Metadata{
 			Client: *client,
 		},
-        Metadata : &metadata.Metadata {
+		MitreAttack: &mitreattack.MitreAttack{
 			Client: *client,
 		},
-        MitreAttack : &mitreattack.MitreAttack {
+		Namespace: &namespace.Namespace{
 			Client: *client,
 		},
-        Namespace : &namespace.Namespace {
+		NetworkBaseline: &networkbaseline.NetworkBaseline{
 			Client: *client,
 		},
-        NetworkBaseline : &networkbaseline.NetworkBaseline {
+		NetworkGraph: &networkgraph.NetworkGraph{
 			Client: *client,
 		},
-        NetworkGraph : &networkgraph.NetworkGraph {
+		NetworkPolicy: &networkpolicy.NetworkPolicy{
 			Client: *client,
 		},
-        NetworkPolicy : &networkpolicy.NetworkPolicy {
+		Node: &node.Node{
 			Client: *client,
 		},
-        Node : &node.Node {
+		Notifier: &notifier.Notifier{
 			Client: *client,
 		},
-        Notifier : &notifier.Notifier {
+		Ping: &ping.Ping{
 			Client: *client,
 		},
-        Ping : &ping.Ping {
+		Pod: &pod.Pod{
 			Client: *client,
 		},
-        Pod : &pod.Pod {
+		PolicyCategory: &policycategory.PolicyCategory{
 			Client: *client,
 		},
-        PolicyCategory : &policycategory.PolicyCategory {
+		Policy: &policy.Policy{
 			Client: *client,
 		},
-        Policy : &policy.Policy {
+		ProbeUpload: &probeupload.ProbeUpload{
 			Client: *client,
 		},
-        ProbeUpload : &probeupload.ProbeUpload {
+		ProcessBaseline: &processbaseline.ProcessBaseline{
 			Client: *client,
 		},
-        ProcessBaseline : &processbaseline.ProcessBaseline {
+		Process: &process.Process{
 			Client: *client,
 		},
-        Process : &process.Process {
+		Rbac: &rbac.Rbac{
 			Client: *client,
 		},
-        Rbac : &rbac.Rbac {
+		ReportConfiguration: &reportconfiguration.ReportConfiguration{
 			Client: *client,
 		},
-        ReportConfiguration : &reportconfiguration.ReportConfiguration {
+		Report: &report.Report{
 			Client: *client,
 		},
-        Report : &report.Report {
+		Role: &role.Role{
 			Client: *client,
 		},
-        Role : &role.Role {
+		Search: &search.Search{
 			Client: *client,
 		},
-        Search : &search.Search {
+		Secret: &secret.Secret{
 			Client: *client,
 		},
-        Secret : &secret.Secret {
+		SensorUpgrade: &sensorupgrade.SensorUpgrade{
 			Client: *client,
 		},
-        SensorUpgrade : &sensorupgrade.SensorUpgrade {
+		Account: &account.Account{
 			Client: *client,
 		},
-        Account : &account.Account {
+		Identity: &identity.Identity{
 			Client: *client,
 		},
-        Identity : &identity.Identity {
+		SignatureIntegration: &signatureintegration.SignatureIntegration{
 			Client: *client,
 		},
-        SignatureIntegration : &signatureintegration.SignatureIntegration {
+		Summary: &summary.Summary{
 			Client: *client,
 		},
-        Summary : &summary.Summary {
+		Telemetry: &telemetry.Telemetry{
 			Client: *client,
 		},
-        Telemetry : &telemetry.Telemetry {
+		User: &user.User{
 			Client: *client,
 		},
-        User : &user.User {
-			Client: *client,
-		},
-        VulnerabilityRequest : &vulnerabilityrequest.VulnerabilityRequest {
+		VulnerabilityRequest: &vulnerabilityrequest.VulnerabilityRequest{
 			Client: *client,
 		},
 	}

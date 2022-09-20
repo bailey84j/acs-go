@@ -15,7 +15,7 @@ type Group struct {
 func (a Group) GetGroup(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("id_string,authProviderId_string,key_string,value_string",args)
+    ok := tools.CheckFieldsValid("id-string,authProviderId-string,key-string,value-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -27,7 +27,7 @@ uriPath := "/v1/group"
 func (a Group) GetGroups(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("authProviderId_string,key_string,value_string,id_string",args)
+    ok := tools.CheckFieldsValid("authProviderId-string,key-string,value-string,id-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -41,7 +41,7 @@ uriPath := "/v1/groups"
 func (a Group) DeleteGroup(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("id_string,authProviderId_string,key_string,value_string",args)
+    ok := tools.CheckFieldsValid("id-string,authProviderId-string,key-string,value-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

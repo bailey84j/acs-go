@@ -15,7 +15,7 @@ type AuthProvider struct {
 func (a AuthProvider) GetAuthProviders(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("name_string,type_string",args)
+    ok := tools.CheckFieldsValid("name-string,type-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

@@ -61,18 +61,18 @@ func logPrint(data PrintLog) {
 	switch data.LogLevel {
 	case "info":
 		if data.Level == "INFO" {
-			log.Printf(data.Level + ":\tsnow-go\t" + data.Msg)
+			log.Printf(data.Level + ":\tacs-go\t" + data.Msg)
 		}
 
 	case "warning":
 		if data.Level == "WARNING" {
-			log.Printf(data.Level + ":\tsnow-go\t" + data.Msg)
+			log.Printf(data.Level + ":\tacs-go\t" + data.Msg)
 		}
 	case "debug":
-		log.Printf(data.Level + ":\tsnow-go\t" + data.Msg)
+		log.Printf(data.Level + ":\tacs-go\t" + data.Msg)
 	default:
 		if data.Level == "ERROR" {
-			log.Printf(data.Level + ":\tsnow-go\t" + data.Msg)
+			log.Printf(data.Level + ":\tacs-go\t" + data.Msg)
 		}
 	}
 }

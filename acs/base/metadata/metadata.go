@@ -24,7 +24,7 @@ uriPath := "/v1/metadata"
 func (a Metadata) TLSChallenge(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("challengeToken_string",args)
+    ok := tools.CheckFieldsValid("challengeToken-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

@@ -15,7 +15,7 @@ type Namespace struct {
 func (a Namespace) GetNamespaces(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_query_string,query_pagination_limit_integer,query_pagination_offset_integer,query_pagination_sortOption_field_string,query_pagination_sortOption_reversed_boolean",args)
+    ok := tools.CheckFieldsValid("query_query-string,query_pagination_limit-integer,query_pagination_offset-integer,query_pagination_sortOption_field-string,query_pagination_sortOption_reversed-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

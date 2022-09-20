@@ -17,7 +17,7 @@ type ProcessBaseline struct {
 func (a ProcessBaseline) GetProcessBaseline(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("key_deploymentId_string,key_containerName_string,key_clusterId_string,key_namespace_string",args)
+    ok := tools.CheckFieldsValid("key_deploymentId-string,key_containerName-string,key_clusterId-string,key_namespace-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -33,7 +33,7 @@ uriPath := "/v1/processbaselines/key"
 func (a ProcessBaseline) DeleteProcessBaselines(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,confirm_boolean",args)
+    ok := tools.CheckFieldsValid("query-string,confirm-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

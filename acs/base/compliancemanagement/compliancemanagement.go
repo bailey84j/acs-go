@@ -15,7 +15,7 @@ type ComplianceManagement struct {
 func (a ComplianceManagement) GetRecentRuns(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("clusterId_string,standardId_string,since_string",args)
+    ok := tools.CheckFieldsValid("clusterId-string,standardId-string,since-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -27,7 +27,7 @@ uriPath := "/v1/complianceManagement/runs"
 func (a ComplianceManagement) GetRunStatuses(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("runIds_array",args)
+    ok := tools.CheckFieldsValid("runIds-array",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

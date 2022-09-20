@@ -1,4 +1,4 @@
-package client
+package acs
 
 import (
 	"fmt"
@@ -25,10 +25,13 @@ type Client struct {
 
 func (c *Client) SetAuth(req *http.Request) error {
 	req.SetBasicAuth(c.Username, c.Password)
+	fmt.Printf("u: %s\tp: %s\n", c.Username, c.Password)
 
 	if len(c.Username) > 0 && len(c.Password) > 0 {
 		req.Header.Set("User-Agent", c.UserAgent)
 		req.SetBasicAuth(c.Username, c.Password)
+		return nil
+	} else {
+		return fmt.Errorf("must provide either a username and password for ACS")
 	}
-	return fmt.Errorf("must provide either a username and password for ACS")
 }

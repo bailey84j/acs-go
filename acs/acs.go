@@ -62,12 +62,12 @@ import (
 	telemetry "github.com/bailey84j/acs-go/acs/base/telemetry"
 	user "github.com/bailey84j/acs-go/acs/base/user"
 	vulnerabilityrequest "github.com/bailey84j/acs-go/acs/base/vulnerabilityrequest"
-	"github.com/bailey84j/acs-go/acs/client"
+	client "github.com/bailey84j/acs-go/acs/client"
 )
 
 const (
 	defaultBaseURL = "https://tower.fiscloudservices.com/"
-	defaultAPIPath = "api/v1"
+	defaultAPIPath = ""
 	userAgent      = "jarvis"
 	logLevel       = "info"
 )
@@ -133,9 +133,11 @@ type API struct {
 
 // Authenticate is used to set and store Basic Auth for this client instance
 func (a *API) Authenticate(username, password string) error {
+
 	if len(username) > 0 && len(password) > 0 {
 		a.client.Username = username
 		a.client.Password = password
+		fmt.Printf("ua: %s\tpa: %s\n", a.client.Username, a.client.Password)
 		return nil
 	}
 	return fmt.Errorf("no valid authentication credentials were provided")
@@ -164,7 +166,7 @@ func NewACSAPI(endpoint string) API {
 	return API{
 		client: client,
 		Alert: &alert.Alert{
-			Client: *client,
+			Client: client,
 		},
 		APIToken: &apitoken.APIToken{
 			Client: *client,

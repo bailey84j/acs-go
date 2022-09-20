@@ -17,7 +17,7 @@ type ImageIntegration struct {
 func (a ImageIntegration) GetImageIntegrations(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("name_string,cluster_string",args)
+    ok := tools.CheckFieldsValid("name-string,cluster-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

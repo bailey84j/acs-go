@@ -24,7 +24,7 @@ uriPath := "/v1/cluster-defaults"
 func (a Clusters) GetClusters(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string",args)
+    ok := tools.CheckFieldsValid("query-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

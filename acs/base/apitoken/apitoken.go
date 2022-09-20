@@ -17,7 +17,7 @@ type APIToken struct {
 func (a APIToken) GetAPITokens(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("revoked_boolean",args)
+    ok := tools.CheckFieldsValid("revoked-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

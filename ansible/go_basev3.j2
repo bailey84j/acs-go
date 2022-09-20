@@ -10,7 +10,7 @@ import (
 )
 
 type {{ item }} struct {
-	Client client.Client
+	Client *client.Client
 }
 {# Loop through all functions which need to be created#}
 {% for func in acs_methods_raw | json_query(itemFuncQuery)  %}
@@ -28,13 +28,13 @@ func (a {{ item }}) {{ detail.operationId.split('_')[1]}}(
         {%- if 'name' in detail | json_query('parameters[?required][]') | string -%}
         {%- for reqparam in detail | json_query('parameters[?required][]') -%}
         {{ reqparam.name | replace('.','_') }} {{ reqparam.schema.type }},{%- endfor -%}
-        {%- endif -%}args map[string]interface{}) {
+        {%- endif -%}args map[string]interface{}) (map[string]interface, error) {
 
 fmt.Printf("Running  Vaidation Failed")
 {% if 'name' in detail | json_query('parameters[?!required][]') | string %}
     ok := tools.CheckFieldsValid("
     {%- for notreqparam in detail | json_query('parameters[?!required][]') -%}
-    {{ notreqparam.name | replace('.','_') }}_{{ notreqparam.schema.type }}{{ "," if not loop.last }}{%- endfor -%}",args)
+    {{ notreqparam.name | replace('.','_') }}-{{ notreqparam.schema.type }}{{ "," if not loop.last }}{%- endfor -%}",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -51,7 +51,11 @@ uriPath := "{{ field | replace('.','_') | replace('/{', '/" + ') | replace('}/',
 {%- endfor %}
 
 
-    tools.{{ func.method | title }}Resource(&a.Client, uriPath, args)
+    msi, err := tools.{{ func.method | title }}Resource(a.Client, uriPath, args)
+    if err != nil {
+		return map[string]interface{}, fmt.Errorf("error: %d", err)
+	}
+    return msi, nil
 
 }
     {%- endfor%}

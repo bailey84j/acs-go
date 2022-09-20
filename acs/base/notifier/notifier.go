@@ -41,7 +41,7 @@ uriPath := "/v1/notifiers/" + id + ""
 func (a Notifier) DeleteNotifier(id string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("force_boolean",args)
+    ok := tools.CheckFieldsValid("force-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }

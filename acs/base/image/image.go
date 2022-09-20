@@ -17,7 +17,7 @@ type Image struct {
 func (a Image) ListImages(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,pagination_limit_integer,pagination_offset_integer,pagination_sortOption_field_string,pagination_sortOption_reversed_boolean",args)
+    ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -42,7 +42,7 @@ uriPath := "/v1/images/cache/invalidate"
 func (a Image) GetImage(id string,args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("includeSnoozed_boolean,stripDescription_boolean",args)
+    ok := tools.CheckFieldsValid("includeSnoozed-boolean,stripDescription-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -56,7 +56,7 @@ uriPath := "/v1/images/" + id + ""
 func (a Image) CountImages(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_string,pagination_limit_integer,pagination_offset_integer,pagination_sortOption_field_string,pagination_sortOption_reversed_boolean",args)
+    ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -83,7 +83,7 @@ uriPath := "/v1/watchedimages"
 func (a Image) DeleteImages(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("query_query_string,query_pagination_limit_integer,query_pagination_offset_integer,query_pagination_sortOption_field_string,query_pagination_sortOption_reversed_boolean,confirm_boolean",args)
+    ok := tools.CheckFieldsValid("query_query-string,query_pagination_limit-integer,query_pagination_offset-integer,query_pagination_sortOption_field-string,query_pagination_sortOption_reversed-boolean,confirm-boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
@@ -97,7 +97,7 @@ uriPath := "/v1/images"
 func (a Image) UnwatchImage(args map[string]interface{}) {
 
 fmt.Printf("Running  Vaidation Failed")
-    ok := tools.CheckFieldsValid("name_string",args)
+    ok := tools.CheckFieldsValid("name-string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
