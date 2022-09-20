@@ -2,77 +2,55 @@ package compliance
 
 import (
     "fmt"
-
-    client "github.com/bailey84j/acs-go/acs/client"
     tools "github.com/bailey84j/acs-go/acs/tools"
+    client "github.com/bailey84j/acs-go/acs/client"
 )
 
 type Compliance struct {
 	Client client.Client
 }
+        // debug: {"detail": [{"operationId": "ComplianceService_GetAggregatedResults", "parameters": [{"explode": true, "in": "query", "name": "groupBy", "required": false, "schema": {"items": {"enum": ["UNKNOWN", "STANDARD", "CLUSTER", "CATEGORY", "CONTROL", "NAMESPACE", "NODE", "DEPLOYMENT", "CHECK"], "type": "string"}, "type": "array"}}, {"in": "query", "name": "unit", "required": false, "schema": {"default": "UNKNOWN", "enum": ["UNKNOWN", "STANDARD", "CLUSTER", "CATEGORY", "CONTROL", "NAMESPACE", "NODE", "DEPLOYMENT", "CHECK"], "type": "string"}}, {"in": "query", "name": "where.query", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "where.pagination.limit", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "where.pagination.offset", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "where.pagination.sortOption.field", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "where.pagination.sortOption.reversed", "required": false, "schema": {"type": "boolean"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/storageComplianceAggregationResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["ComplianceService"]}, {"operationId": "ComplianceService_GetRunResults", "parameters": [{"in": "query", "name": "clusterId", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "standardId", "required": false, "schema": {"type": "string"}}, {"description": "Specifies the run ID for which to return results. If empty, the most recent run is returned.\nCAVEAT: Setting this field circumvents the results cache on the server-side, which may lead to significantly\n        increased memory pressure and decreased performance.", "in": "query", "name": "runId", "required": false, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetComplianceRunResultsResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["ComplianceService"]}, {"operationId": "ComplianceService_GetStandards", "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetComplianceStandardsResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["ComplianceService"]}, {"operationId": "ComplianceService_GetStandard", "parameters": [{"in": "path", "name": "id", "required": true, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetComplianceStandardResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["ComplianceService"]}], "method": "get"}
+
+        
 func (a Compliance) GetAggregatedResults(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'groupBy', 'in': 'query', 'required': False, 'explode': True, 'schema': {'type': 'array', 'items': {'type': 'string', 'enum': ['UNKNOWN', 'STANDARD', 'CLUSTER', 'CATEGORY', 'CONTROL', 'NAMESPACE', 'NODE', 'DEPLOYMENT', 'CHECK']}}}, {'name': 'unit', 'in': 'query', 'required': False, 'schema': {'type': 'string', 'enum': ['UNKNOWN', 'STANDARD', 'CLUSTER', 'CATEGORY', 'CONTROL', 'NAMESPACE', 'NODE', 'DEPLOYMENT', 'CHECK'], 'default': 'UNKNOWN'}}, {'name': 'where.query', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'where.pagination.limit', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'where.pagination.offset', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'where.pagination.sortOption.field', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'where.pagination.sortOption.reversed', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("groupBy_array,unit_string,where_query_string,where_pagination_limit_integer,where_pagination_offset_integer,where_pagination_sortOption_field_string,where_pagination_sortOption_reversed_boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/compliance/aggregatedresults"
 
-
-    // GetAggregatedResultsResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 func (a Compliance) GetRunResults(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'clusterId', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'standardId', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'runId', 'description': 'Specifies the run ID for which to return results. If empty, the most recent run is returned.\nCAVEAT: Setting this field circumvents the results cache on the server-side, which may lead to significantly\n        increased memory pressure and decreased performance.', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("clusterId_string,standardId_string,runId_string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/compliance/runresults"
 
-
-    // GetRunResultsResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 func (a Compliance) GetStandards(args map[string]interface{}) {
 
-//  
-// NOT Required 
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/compliance/standards"
 
-
-
-    // GetStandardsResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 func (a Compliance) GetStandard(id string,args map[string]interface{}) {
 
-//  
-// NOT Required []
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/compliance/standards/" + id + ""
 
+    tools.GetResource(&a.Client, uriPath, args)
 
-
-    // GetStandardResource()
-
-
-
-
-
-}
+}                

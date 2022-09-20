@@ -2,62 +2,112 @@ package imageintegration
 
 import (
     "fmt"
-
-    client "github.com/bailey84j/acs-go/acs/client"
     tools "github.com/bailey84j/acs-go/acs/tools"
+    client "github.com/bailey84j/acs-go/acs/client"
 )
 
 type ImageIntegration struct {
 	Client client.Client
 }
+        // debug: {"detail": [{"operationId": "ImageIntegrationService_GetImageIntegrations", "parameters": [{"in": "query", "name": "name", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "cluster", "required": false, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetImageIntegrationsResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "GetImageIntegrations returns all image integrations that match the request filters.", "tags": ["ImageIntegrationService"]}, {"operationId": "ImageIntegrationService_GetImageIntegration", "parameters": [{"in": "path", "name": "id", "required": true, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/storageImageIntegration"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "GetImageIntegration returns the image integration given its ID.", "tags": ["ImageIntegrationService"]}], "method": "get"}
+
+        
 // GetImageIntegrations returns all image integrations that match the request filters.
+
 func (a ImageIntegration) GetImageIntegrations(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'name', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'cluster', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("name_string,cluster_string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/imageintegrations"
 
-
-    // GetResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 // GetImageIntegration returns the image integration given its ID.
+
 func (a ImageIntegration) GetImageIntegration(id string,args map[string]interface{}) {
 
-//  
-// NOT Required []
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/imageintegrations/" + id + ""
 
+    tools.GetResource(&a.Client, uriPath, args)
 
+}        // debug: {"detail": [{"operationId": "ImageIntegrationService_DeleteImageIntegration", "parameters": [{"in": "path", "name": "id", "required": true, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "DeleteImageIntegration removes a image integration given its ID.", "tags": ["ImageIntegrationService"]}], "method": "delete"}
 
-    // GetResource()
-
-
-
-
-
-}
+        
 // DeleteImageIntegration removes a image integration given its ID.
+
 func (a ImageIntegration) DeleteImageIntegration(id string,args map[string]interface{}) {
 
-//  
-// NOT Required []
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/imageintegrations/" + id + ""
 
+    tools.DeleteResource(&a.Client, uriPath, args)
 
+}        // debug: {"detail": [{"operationId": "ImageIntegrationService_UpdateImageIntegration", "parameters": [{"in": "path", "name": "config.id", "required": true, "schema": {"type": "string"}}], "requestBody": {"$ref": "#/components/requestBodies/v1UpdateImageIntegrationRequest"}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "UpdateImageIntegration modifies a given image integration, with optional stored credential reconciliation.", "tags": ["ImageIntegrationService"]}], "method": "patch"}
 
-    // DeleteResource()
+        
+// UpdateImageIntegration modifies a given image integration, with optional stored credential reconciliation.
 
+func (a ImageIntegration) UpdateImageIntegration(config_id string,args map[string]interface{}) {
 
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/imageintegrations/" + config_id + ""
 
+    tools.PatchResource(&a.Client, uriPath, args)
+
+}        // debug: {"detail": [{"operationId": "ImageIntegrationService_PostImageIntegration", "requestBody": {"$ref": "#/components/requestBodies/storageImageIntegration"}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/storageImageIntegration"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "PostImageIntegration creates a image integration.", "tags": ["ImageIntegrationService"]}, {"operationId": "ImageIntegrationService_TestImageIntegration", "requestBody": {"$ref": "#/components/requestBodies/storageImageIntegration"}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "TestImageIntegration checks if the given image integration is correctly configured, without using stored credential reconciliation.", "tags": ["ImageIntegrationService"]}, {"operationId": "ImageIntegrationService_TestUpdatedImageIntegration", "requestBody": {"$ref": "#/components/requestBodies/v1UpdateImageIntegrationRequest"}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "TestUpdatedImageIntegration checks if the given image integration is correctly configured, with optional stored credential reconciliation.", "tags": ["ImageIntegrationService"]}], "method": "post"}
+
+        
+// PostImageIntegration creates a image integration.
+
+func (a ImageIntegration) PostImageIntegration(args map[string]interface{}) {
+
+fmt.Printf("Running  Vaidation Failed")
+
+uriPath := "/v1/imageintegrations"
+
+    tools.PostResource(&a.Client, uriPath, args)
+
+}
+// TestImageIntegration checks if the given image integration is correctly configured, without using stored credential reconciliation.
+
+func (a ImageIntegration) TestImageIntegration(args map[string]interface{}) {
+
+fmt.Printf("Running  Vaidation Failed")
+
+uriPath := "/v1/imageintegrations/test"
+
+    tools.PostResource(&a.Client, uriPath, args)
+
+}
+// TestUpdatedImageIntegration checks if the given image integration is correctly configured, with optional stored credential reconciliation.
+
+func (a ImageIntegration) TestUpdatedImageIntegration(args map[string]interface{}) {
+
+fmt.Printf("Running  Vaidation Failed")
+
+uriPath := "/v1/imageintegrations/test/updated"
+
+    tools.PostResource(&a.Client, uriPath, args)
+
+}        // debug: {"detail": [{"operationId": "ImageIntegrationService_PutImageIntegration", "parameters": [{"in": "path", "name": "id", "required": true, "schema": {"type": "string"}}], "requestBody": {"$ref": "#/components/requestBodies/storageImageIntegration"}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "PutImageIntegration modifies a given image integration, without using stored credential reconciliation.", "tags": ["ImageIntegrationService"]}], "method": "put"}
+
+        
+// PutImageIntegration modifies a given image integration, without using stored credential reconciliation.
+
+func (a ImageIntegration) PutImageIntegration(id string,args map[string]interface{}) {
+
+fmt.Printf("Running  Vaidation Failed")
+
+uriPath := "/v1/imageintegrations/" + id + ""
+
+    tools.PutResource(&a.Client, uriPath, args)
 
 }

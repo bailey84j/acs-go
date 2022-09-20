@@ -2,141 +2,131 @@ package image
 
 import (
     "fmt"
-
-    client "github.com/bailey84j/acs-go/acs/client"
     tools "github.com/bailey84j/acs-go/acs/tools"
+    client "github.com/bailey84j/acs-go/acs/client"
 )
 
 type Image struct {
 	Client client.Client
 }
+        // debug: {"detail": [{"operationId": "ImageService_ListImages", "parameters": [{"in": "query", "name": "query", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "pagination.limit", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "pagination.offset", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "pagination.sortOption.field", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "pagination.sortOption.reversed", "required": false, "schema": {"type": "boolean"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1ListImagesResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "ListImages returns all the images.", "tags": ["ImageService"]}, {"operationId": "ImageService_InvalidateScanAndRegistryCaches", "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "InvalidateScanAndRegistryCaches removes the image metadata cache.", "tags": ["ImageService"]}, {"operationId": "ImageService_GetImage", "parameters": [{"in": "path", "name": "id", "required": true, "schema": {"type": "string"}}, {"in": "query", "name": "includeSnoozed", "required": false, "schema": {"type": "boolean"}}, {"in": "query", "name": "stripDescription", "required": false, "schema": {"type": "boolean"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/storageImage"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "GetImage returns the image given its ID.", "tags": ["ImageService"]}, {"operationId": "ImageService_CountImages", "parameters": [{"in": "query", "name": "query", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "pagination.limit", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "pagination.offset", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "pagination.sortOption.field", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "pagination.sortOption.reversed", "required": false, "schema": {"type": "boolean"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1CountImagesResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "ListImages returns all the images.", "tags": ["ImageService"]}, {"operationId": "ImageService_GetWatchedImages", "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetWatchedImagesResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "GetWatchedImages returns the list of image names that are currently\nbeing watched.", "tags": ["ImageService"]}], "method": "get"}
+
+        
 // ListImages returns all the images.
+
 func (a Image) ListImages(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'query', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'pagination.limit', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'pagination.offset', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'pagination.sortOption.field', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'pagination.sortOption.reversed', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("query_string,pagination_limit_integer,pagination_offset_integer,pagination_sortOption_field_string,pagination_sortOption_reversed_boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/images"
 
-
-    // ListResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 // InvalidateScanAndRegistryCaches removes the image metadata cache.
+
 func (a Image) InvalidateScanAndRegistryCaches(args map[string]interface{}) {
 
-//  
-// NOT Required 
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/images/cache/invalidate"
 
-
-
-    // InvalidateScanAndRegistryCachesResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 // GetImage returns the image given its ID.
+
 func (a Image) GetImage(id string,args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'includeSnoozed', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}, {'name': 'stripDescription', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("includeSnoozed_boolean,stripDescription_boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/images/" + id + ""
 
-
-    // GetResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 // ListImages returns all the images.
+
 func (a Image) CountImages(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'query', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'pagination.limit', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'pagination.offset', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'pagination.sortOption.field', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'pagination.sortOption.reversed', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("query_string,pagination_limit_integer,pagination_offset_integer,pagination_sortOption_field_string,pagination_sortOption_reversed_boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/imagescount"
 
-
-    // CountResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
-// GetWatchedImages returns the list of image names that are currently
-being watched.
+// GetWatchedImages returns the list of image names that are currently being watched.
+
 func (a Image) GetWatchedImages(args map[string]interface{}) {
 
-//  
-// NOT Required 
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/watchedimages"
 
+    tools.GetResource(&a.Client, uriPath, args)
 
+}        // debug: {"detail": [{"operationId": "ImageService_DeleteImages", "parameters": [{"in": "query", "name": "query.query", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "query.pagination.limit", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "query.pagination.offset", "required": false, "schema": {"format": "int32", "type": "integer"}}, {"in": "query", "name": "query.pagination.sortOption.field", "required": false, "schema": {"type": "string"}}, {"in": "query", "name": "query.pagination.sortOption.reversed", "required": false, "schema": {"type": "boolean"}}, {"in": "query", "name": "confirm", "required": false, "schema": {"type": "boolean"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1DeleteImagesResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "DeleteImage removes the images based on a query", "tags": ["ImageService"]}, {"operationId": "ImageService_UnwatchImage", "parameters": [{"description": "The name of the image to unwatch.\nShould match the name of a previously watched image.", "in": "query", "name": "name", "required": false, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "UnwatchImage marks an image name to no longer be watched.\nIt returns successfully if the image is no longer being watched\nafter the call, irrespective of whether the image was already being watched.", "tags": ["ImageService"]}], "method": "delete"}
 
-    // GetWatchedResource()
-
-
-
-
-
-}
+        
 // DeleteImage removes the images based on a query
+
 func (a Image) DeleteImages(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'query.query', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'query.pagination.limit', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'query.pagination.offset', 'in': 'query', 'required': False, 'schema': {'type': 'integer', 'format': 'int32'}}, {'name': 'query.pagination.sortOption.field', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}, {'name': 'query.pagination.sortOption.reversed', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}, {'name': 'confirm', 'in': 'query', 'required': False, 'schema': {'type': 'boolean'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("query_query_string,query_pagination_limit_integer,query_pagination_offset_integer,query_pagination_sortOption_field_string,query_pagination_sortOption_reversed_boolean,confirm_boolean",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/images"
 
-
-    // DeleteResource()
-
-
-
-
+    tools.DeleteResource(&a.Client, uriPath, args)
 
 }
-// UnwatchImage marks an image name to no longer be watched.
-It returns successfully if the image is no longer being watched
-after the call, irrespective of whether the image was already being watched.
+// UnwatchImage marks an image name to no longer be watched. It returns successfully if the image is no longer being watched after the call, irrespective of whether the image was already being watched.
+
 func (a Image) UnwatchImage(args map[string]interface{}) {
 
-//  
-// NOT Required [{'name': 'name', 'description': 'The name of the image to unwatch.\nShould match the name of a previously watched image.', 'in': 'query', 'required': False, 'schema': {'type': 'string'}}]
-
+fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("name_string",args)
     if !ok {
 		fmt.Printf("Variable Vaidation Failed")
     }
+uriPath := "/v1/watchedimages"
 
+    tools.DeleteResource(&a.Client, uriPath, args)
 
-    // UnwatchResource()
+}            // debug: {"detail": [{"operationId": "ImageService_ScanImage", "requestBody": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1ScanImageRequest"}}}, "required": true}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/storageImage"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "ScanImage scans a single image and returns the result", "tags": ["ImageService"]}, {"operationId": "ImageService_WatchImage", "requestBody": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1WatchImageRequest"}}}, "required": true}, "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1WatchImageResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "WatchImage marks an image name as to be watched.", "tags": ["ImageService"]}], "method": "post"}
 
+        
+// ScanImage scans a single image and returns the result
 
+func (a Image) ScanImage(args map[string]interface{}) {
 
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/images/scan"
+
+    tools.PostResource(&a.Client, uriPath, args)
 
 }
+// WatchImage marks an image name as to be watched.
+
+func (a Image) WatchImage(args map[string]interface{}) {
+
+fmt.Printf("Running  Vaidation Failed")
+
+uriPath := "/v1/watchedimages"
+
+    tools.PostResource(&a.Client, uriPath, args)
+
+}    

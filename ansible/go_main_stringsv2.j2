@@ -11,6 +11,6 @@
 ---------------------------------------------
 {% for item in acs_paths %}
 {{ item }} : &{{ item | lower }}.{{ item }} {
-			Client: client,
+			Client: *client,
 		},
 {% endfor %}

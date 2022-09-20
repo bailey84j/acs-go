@@ -6,10 +6,7 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"reflect"
 	"strings"
-
-	jmespath "github.com/jmespath/go-jmespath"
 )
 
 // BodyToMap converts an io.Closer to a map and returns the datastructure, if there is an error the body will be returned with the error

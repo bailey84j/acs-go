@@ -2,41 +2,31 @@ package node
 
 import (
     "fmt"
-
-    client "github.com/bailey84j/acs-go/acs/client"
     tools "github.com/bailey84j/acs-go/acs/tools"
+    client "github.com/bailey84j/acs-go/acs/client"
 )
 
 type Node struct {
 	Client client.Client
 }
+        // debug: {"detail": [{"operationId": "NodeService_ListNodes", "parameters": [{"in": "path", "name": "clusterId", "required": true, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1ListNodesResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["NodeService"]}, {"operationId": "NodeService_GetNode", "parameters": [{"in": "path", "name": "clusterId", "required": true, "schema": {"type": "string"}}, {"in": "path", "name": "nodeId", "required": true, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/storageNode"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["NodeService"]}], "method": "get"}
+
+        
 func (a Node) ListNodes(clusterId string,args map[string]interface{}) {
 
-//  
-// NOT Required []
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/nodes/" + clusterId + ""
 
-
-
-    // ListResource()
-
-
-
-
+    tools.GetResource(&a.Client, uriPath, args)
 
 }
 func (a Node) GetNode(clusterId string,nodeId string,args map[string]interface{}) {
 
-//  
-// NOT Required []
+fmt.Printf("Running  Vaidation Failed")
 
+uriPath := "/v1/nodes/" + clusterId + "/" + nodeId + ""
 
+    tools.GetResource(&a.Client, uriPath, args)
 
-
-    // GetResource()
-
-
-
-
-
-}
+}                

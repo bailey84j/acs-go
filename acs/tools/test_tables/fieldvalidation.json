@@ -1,0 +1,21 @@
+[
+    {
+    "name": "fieldvalidation_good1",
+    "args": {
+        "fieldTypes": "query_string,pagination_limit_integer,pagination_offset_integer,pagination_sortOption_field_string,pagination_sortOption_reversed_boolean",
+        "args": "{\"query_string\": \"test\"}"
+    },
+    "result":"true"
+},
+    {
+    "name": "fieldvalidation_fail1",
+    "args": {
+        "fieldTypes": "query_string,pagination_limit_integer,pagination_offset_integer,pagination_sortOption_field_string,pagination_sortOption_reversed_boolean",
+        "args": "{\"query_string\": true}"
+    },
+    "result":"false"
+}
+
+
+
+]

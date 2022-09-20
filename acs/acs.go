@@ -7,8 +7,10 @@ import (
 	"net/url"
 	"path"
 
+	account "github.com/bailey84j/acs-go/acs/base/account"
 	alert "github.com/bailey84j/acs-go/acs/base/alert"
 	apitoken "github.com/bailey84j/acs-go/acs/base/apitoken"
+	auth "github.com/bailey84j/acs-go/acs/base/auth"
 	authprovider "github.com/bailey84j/acs-go/acs/base/authprovider"
 	centralhealth "github.com/bailey84j/acs-go/acs/base/centralhealth"
 	clustercve "github.com/bailey84j/acs-go/acs/base/clustercve"
@@ -26,6 +28,7 @@ import (
 	externalbackup "github.com/bailey84j/acs-go/acs/base/externalbackup"
 	featureflag "github.com/bailey84j/acs-go/acs/base/featureflag"
 	group "github.com/bailey84j/acs-go/acs/base/group"
+	identity "github.com/bailey84j/acs-go/acs/base/identity"
 	image "github.com/bailey84j/acs-go/acs/base/image"
 	imagecve "github.com/bailey84j/acs-go/acs/base/imagecve"
 	imageintegration "github.com/bailey84j/acs-go/acs/base/imageintegration"
@@ -52,15 +55,14 @@ import (
 	reportconfiguration "github.com/bailey84j/acs-go/acs/base/reportconfiguration"
 	role "github.com/bailey84j/acs-go/acs/base/role"
 	search "github.com/bailey84j/acs-go/acs/base/search"
+	secret "github.com/bailey84j/acs-go/acs/base/secret"
 	sensorupgrade "github.com/bailey84j/acs-go/acs/base/sensorupgrade"
-	serviceaccount "github.com/bailey84j/acs-go/acs/base/serviceaccount"
-	serviceidenity "github.com/bailey84j/acs-go/acs/base/serviceidenity"
 	signatureintegration "github.com/bailey84j/acs-go/acs/base/signatureintegration"
 	summary "github.com/bailey84j/acs-go/acs/base/summary"
 	telemetry "github.com/bailey84j/acs-go/acs/base/telemetry"
 	user "github.com/bailey84j/acs-go/acs/base/user"
 	vulnerabilityrequest "github.com/bailey84j/acs-go/acs/base/vulnerabilityrequest"
-	client "github.com/bailey84j/acs-go/acs/client"
+	"github.com/bailey84j/acs-go/acs/client"
 )
 
 const (
@@ -74,6 +76,7 @@ type API struct {
 	client               *client.Client
 	Alert                *alert.Alert
 	APIToken             *apitoken.APIToken
+	Auth                 *auth.Auth
 	AuthProvider         *authprovider.AuthProvider
 	ExternalBackup       *externalbackup.ExternalBackup
 	CentralHealth        *centralhealth.CentralHealth
@@ -112,14 +115,15 @@ type API struct {
 	ProbeUpload          *probeupload.ProbeUpload
 	ProcessBaseline      *processbaseline.ProcessBaseline
 	Process              *process.Process
-	RBAC                 *rbac.RBAC
+	Rbac                 *rbac.Rbac
 	ReportConfiguration  *reportconfiguration.ReportConfiguration
 	Report               *report.Report
 	Role                 *role.Role
 	Search               *search.Search
+	Secret               *secret.Secret
 	SensorUpgrade        *sensorupgrade.SensorUpgrade
-	ServiceAccount       *serviceaccount.ServiceAccount
-	ServiceIdenity       *serviceidenity.ServiceIdenity
+	Account              *account.Account
+	Identity             *identity.Identity
 	SignatureIntegration *signatureintegration.SignatureIntegration
 	Summary              *summary.Summary
 	Telemetry            *telemetry.Telemetry
@@ -163,6 +167,9 @@ func NewACSAPI(endpoint string) API {
 			Client: *client,
 		},
 		APIToken: &apitoken.APIToken{
+			Client: *client,
+		},
+		Auth: &auth.Auth{
 			Client: *client,
 		},
 		AuthProvider: &authprovider.AuthProvider{
@@ -279,7 +286,7 @@ func NewACSAPI(endpoint string) API {
 		Process: &process.Process{
 			Client: *client,
 		},
-		RBAC: &rbac.RBAC{
+		Rbac: &rbac.Rbac{
 			Client: *client,
 		},
 		ReportConfiguration: &reportconfiguration.ReportConfiguration{
@@ -294,13 +301,16 @@ func NewACSAPI(endpoint string) API {
 		Search: &search.Search{
 			Client: *client,
 		},
+		Secret: &secret.Secret{
+			Client: *client,
+		},
 		SensorUpgrade: &sensorupgrade.SensorUpgrade{
 			Client: *client,
 		},
-		ServiceAccount: &serviceaccount.ServiceAccount{
+		Account: &account.Account{
 			Client: *client,
 		},
-		ServiceIdenity: &serviceidenity.ServiceIdenity{
+		Identity: &identity.Identity{
 			Client: *client,
 		},
 		SignatureIntegration: &signatureintegration.SignatureIntegration{

@@ -1,0 +1,39 @@
+{% set jsonquery = '[?name==`' + item + '`].func[]' %}
+package {{ item | lower}}
+
+import (
+    {% for func in acs_methods_raw | json_query(jsonquery)  %}
+    {% if 'name' in func | json_query('detail.parameters[?!required][]') | string %}
+    {% if x is defined %}{%else%}
+    "fmt"{% endif %}{% endif %}{% set x = 'complete' %}{%endfor%}
+    
+    tools "github.com/bailey84j/acs-go/acs/tools"
+    client "github.com/bailey84j/acs-go/acs/client"
+)
+
+type {{ item }} struct {
+	Client client.Client
+}
+{% for func in acs_methods_raw | json_query(jsonquery)  %}
+{%- if func.summary is defined -%}
+// {{ func.summary | replace('\n',' ') }}
+{% endif %}
+func (a {{ item }}) {{ func.detail.operationId.split('_')[1]}}(
+    {%- if 'name' in func | json_query('detail.parameters[?required][]') | string -%}
+    {%- for reqparam in func | json_query('detail.parameters[?required][]') -%}
+    {{ reqparam.name | replace('.','_') }} {{ reqparam.schema.type }},{%- endfor -%}
+    {%- endif -%}args map[string]interface{}) {
+
+{% if 'name' in func | json_query('detail.parameters[?!required][]') | string %}
+    ok := tools.CheckFieldsValid("
+{%- for notreqparam in func | json_query('detail.parameters[?!required][]') -%}
+{{ notreqparam.name | replace('.','_') }}_{{ notreqparam.schema.type }}{{ "," if not loop.last }}{%- endfor -%}",args)
+    if !ok {
+		fmt.Printf("Variable Vaidation Failed")
+    }
+    {%- endif %}
+
+    // tools.{{ func.operationId.split('_')[1].split(item)[0]}}Resource()
+
+}
+{% endfor %}

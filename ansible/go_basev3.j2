@@ -1,0 +1,60 @@
+{% set itemFuncQuery = '[?name==`' + item + '`].func[]' %}
+{# Get Package Name From Loop Item#}
+package {{ item | lower}}
+
+{# Build import block #}
+import (
+    "fmt"
+    tools "github.com/bailey84j/acs-go/acs/tools"
+    client "github.com/bailey84j/acs-go/acs/client"
+)
+
+type {{ item }} struct {
+	Client client.Client
+}
+{# Loop through all functions which need to be created#}
+{% for func in acs_methods_raw | json_query(itemFuncQuery)  %}
+{# Check there is a valid detail to use to build function #}
+    {% if func.detail | string != '[]' %}
+    // debug: {{func | to_json}}
+
+        {% for detail in func.detail %}
+{% if detail.summary is defined %}
+
+// {{ detail.summary | replace('\n',' ') }}
+{% endif %}
+
+func (a {{ item }}) {{ detail.operationId.split('_')[1]}}(
+        {%- if 'name' in detail | json_query('parameters[?required][]') | string -%}
+        {%- for reqparam in detail | json_query('parameters[?required][]') -%}
+        {{ reqparam.name | replace('.','_') }} {{ reqparam.schema.type }},{%- endfor -%}
+        {%- endif -%}args map[string]interface{}) {
+
+fmt.Printf("Running  Vaidation Failed")
+{% if 'name' in detail | json_query('parameters[?!required][]') | string %}
+    ok := tools.CheckFieldsValid("
+    {%- for notreqparam in detail | json_query('parameters[?!required][]') -%}
+    {{ notreqparam.name | replace('.','_') }}_{{ notreqparam.schema.type }}{{ "," if not loop.last }}{%- endfor -%}",args)
+    if !ok {
+		fmt.Printf("Variable Vaidation Failed")
+    }
+    {%- endif %}
+
+{% for field  in swaggerFile['paths'] %}
+{%- if swaggerFile['paths'][ field ][func.method] is defined %}
+{%- if swaggerFile['paths'][ field ][func.method]['operationId'] is defined %}
+{%- if swaggerFile['paths'][ field ][func.method]['operationId'] == detail.operationId %}
+uriPath := "{{ field | replace('.','_') | replace('/{', '/" + ') | replace('}/',' + "/') | replace('}',' + "')}}"
+{%- endif%}
+{%- endif %}
+{%- endif%}
+{%- endfor %}
+
+
+    tools.{{ func.method | title }}Resource(&a.Client, uriPath, args)
+
+}
+    {%- endfor%}
+
+    {%- endif %}
+{%- endfor %}
