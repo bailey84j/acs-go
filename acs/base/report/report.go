@@ -7,17 +7,21 @@ import (
 )
 
 type Report struct {
-	Client client.Client
+	Client *client.Client
 }
                     // debug: {"detail": [{"operationId": "ReportService_RunReport", "parameters": [{"in": "path", "name": "id", "required": true, "schema": {"type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1Empty"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["ReportService"]}], "method": "post"}
 
         
-func (a Report) RunReport(id string,args map[string]interface{}) {
+func (a Report) RunReport(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
 fmt.Printf("Running  Vaidation Failed")
 
 uriPath := "/v1/report/run/" + id + ""
 
-    tools.PostResource(&a.Client, uriPath, args)
+    msi, err := tools.PostResource(a.Client, uriPath, args)
+    if err != nil {
+		return nil, fmt.Errorf("error: %d", err)
+	}
+    return msi, nil
 
 }    

@@ -7,14 +7,14 @@ import (
 )
 
 type CredentialExpiry struct {
-	Client client.Client
+	Client *client.Client
 }
         // debug: {"detail": [{"operationId": "CredentialExpiryService_GetCertExpiry", "parameters": [{"in": "query", "name": "component", "required": false, "schema": {"default": "UNKNOWN", "enum": ["UNKNOWN", "CENTRAL", "SCANNER"], "type": "string"}}], "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetCertExpiryResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "summary": "GetCertExpiry returns information related to the expiry component mTLS certificate.", "tags": ["CredentialExpiryService"]}], "method": "get"}
 
         
 // GetCertExpiry returns information related to the expiry component mTLS certificate.
 
-func (a CredentialExpiry) GetCertExpiry(args map[string]interface{}) {
+func (a CredentialExpiry) GetCertExpiry(args map[string]interface{}) (map[string]interface{}, error) {
 
 fmt.Printf("Running  Vaidation Failed")
     ok := tools.CheckFieldsValid("component-string",args)
@@ -23,6 +23,10 @@ fmt.Printf("Running  Vaidation Failed")
     }
 uriPath := "/v1/credentialexpiry"
 
-    tools.GetResource(&a.Client, uriPath, args)
+    msi, err := tools.GetResource(a.Client, uriPath, args)
+    if err != nil {
+		return nil, fmt.Errorf("error: %d", err)
+	}
+    return msi, nil
 
 }                

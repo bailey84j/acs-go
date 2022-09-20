@@ -10,11 +10,12 @@ import (
 {% for item in acs_paths %}
     {{ item | lower }} "github.com/bailey84j/acs-go/acs/base/{{ item | lower }}"
 {% endfor %}
+    client "github.com/bailey84j/acs-go/acs/client"
 )
 
 const (
 	defaultBaseURL = "https://tower.fiscloudservices.com/"
-	defaultAPIPath = "api/v1"
+	defaultAPIPath = ""
 	userAgent      = "jarvis"
 	logLevel       = "info"
 )
@@ -59,7 +60,7 @@ func NewACSAPI(endpoint string) API {
 		client: client,
 {% for item in acs_paths %}
         {{ item }} : &{{ item | lower }}.{{ item }} {
-			Client: *client,
+			Client: client,
 		},
 {% endfor %}
 	}

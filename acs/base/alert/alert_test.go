@@ -2,7 +2,6 @@ package alert_test
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"os"
 	"testing"
@@ -22,8 +21,6 @@ func TestListAlerts(t *testing.T) {
 	password := os.Getenv("acs_password")
 	username := os.Getenv("acs_username")
 	//url := os.Getenv("acs_url")
-	fmt.Printf("ux: %s\n", username)
-	fmt.Printf("px: %s\n", password)
 
 	//LogLevel := (*test_LogLevel)
 	tableFile := "../../test_tables/alert/listalerts.json"
@@ -62,8 +59,27 @@ func TestListAlerts(t *testing.T) {
 				}
 			}
 
-			fmt.Printf("u+p: %+v", acs.Alert.Client.Client)
-			acs.Alert.ListAlerts(testParams.args)
+			msi, err := acs.Alert.ListAlerts(testParams.args)
+			if msi != nil {
+				jsonbyte, err := json.Marshal(msi)
+				if err != nil {
+					t.Errorf("error parsing JSON string - %s", err)
+				}
+
+				jsonstring := string(jsonbyte)
+				t.Log(jsonstring)
+
+				if jsonstring != tt.Result {
+					t.Errorf("Expected: " + tt.Result + "\nGot: " + jsonstring)
+				}
+				//fmt.Println(j)
+			} else {
+				//fmt.Println(err)
+				if err.Error() != tt.Result {
+					//t.Log(tt.Result)
+					t.Errorf("test failed: %v", err.Error())
+				}
+			}
 
 		})
 	}

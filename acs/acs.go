@@ -133,11 +133,9 @@ type API struct {
 
 // Authenticate is used to set and store Basic Auth for this client instance
 func (a *API) Authenticate(username, password string) error {
-
 	if len(username) > 0 && len(password) > 0 {
 		a.client.Username = username
 		a.client.Password = password
-		fmt.Printf("ua: %s\tpa: %s\n", a.client.Username, a.client.Password)
 		return nil
 	}
 	return fmt.Errorf("no valid authentication credentials were provided")
@@ -169,166 +167,166 @@ func NewACSAPI(endpoint string) API {
 			Client: client,
 		},
 		APIToken: &apitoken.APIToken{
-			Client: *client,
+			Client: client,
 		},
 		Auth: &auth.Auth{
-			Client: *client,
+			Client: client,
 		},
 		AuthProvider: &authprovider.AuthProvider{
-			Client: *client,
+			Client: client,
 		},
 		ExternalBackup: &externalbackup.ExternalBackup{
-			Client: *client,
+			Client: client,
 		},
 		CentralHealth: &centralhealth.CentralHealth{
-			Client: *client,
+			Client: client,
 		},
 		ClusterInit: &clusterinit.ClusterInit{
-			Client: *client,
+			Client: client,
 		},
 		Clusters: &clusters.Clusters{
-			Client: *client,
+			Client: client,
 		},
 		ComplianceManagement: &compliancemanagement.ComplianceManagement{
-			Client: *client,
+			Client: client,
 		},
 		Compliance: &compliance.Compliance{
-			Client: *client,
+			Client: client,
 		},
 		Config: &config.Config{
-			Client: *client,
+			Client: client,
 		},
 		CredentialExpiry: &credentialexpiry.CredentialExpiry{
-			Client: *client,
+			Client: client,
 		},
 		ClusterCVE: &clustercve.ClusterCVE{
-			Client: *client,
+			Client: client,
 		},
 		CVE: &cve.CVE{
-			Client: *client,
+			Client: client,
 		},
 		ImageCVE: &imagecve.ImageCVE{
-			Client: *client,
+			Client: client,
 		},
 		NodeCVE: &nodecve.NodeCVE{
-			Client: *client,
+			Client: client,
 		},
 		DB: &db.DB{
-			Client: *client,
+			Client: client,
 		},
 		Debug: &debug.Debug{
-			Client: *client,
+			Client: client,
 		},
 		Deployment: &deployment.Deployment{
-			Client: *client,
+			Client: client,
 		},
 		Detection: &detection.Detection{
-			Client: *client,
+			Client: client,
 		},
 		FeatureFlag: &featureflag.FeatureFlag{
-			Client: *client,
+			Client: client,
 		},
 		Group: &group.Group{
-			Client: *client,
+			Client: client,
 		},
 		ImageIntegration: &imageintegration.ImageIntegration{
-			Client: *client,
+			Client: client,
 		},
 		Image: &image.Image{
-			Client: *client,
+			Client: client,
 		},
 		IntegrationHealth: &integrationhealth.IntegrationHealth{
-			Client: *client,
+			Client: client,
 		},
 		License: &license.License{
-			Client: *client,
+			Client: client,
 		},
 		Metadata: &metadata.Metadata{
-			Client: *client,
+			Client: client,
 		},
 		MitreAttack: &mitreattack.MitreAttack{
-			Client: *client,
+			Client: client,
 		},
 		Namespace: &namespace.Namespace{
-			Client: *client,
+			Client: client,
 		},
 		NetworkBaseline: &networkbaseline.NetworkBaseline{
-			Client: *client,
+			Client: client,
 		},
 		NetworkGraph: &networkgraph.NetworkGraph{
-			Client: *client,
+			Client: client,
 		},
 		NetworkPolicy: &networkpolicy.NetworkPolicy{
-			Client: *client,
+			Client: client,
 		},
 		Node: &node.Node{
-			Client: *client,
+			Client: client,
 		},
 		Notifier: &notifier.Notifier{
-			Client: *client,
+			Client: client,
 		},
 		Ping: &ping.Ping{
-			Client: *client,
+			Client: client,
 		},
 		Pod: &pod.Pod{
-			Client: *client,
+			Client: client,
 		},
 		PolicyCategory: &policycategory.PolicyCategory{
-			Client: *client,
+			Client: client,
 		},
 		Policy: &policy.Policy{
-			Client: *client,
+			Client: client,
 		},
 		ProbeUpload: &probeupload.ProbeUpload{
-			Client: *client,
+			Client: client,
 		},
 		ProcessBaseline: &processbaseline.ProcessBaseline{
-			Client: *client,
+			Client: client,
 		},
 		Process: &process.Process{
-			Client: *client,
+			Client: client,
 		},
 		Rbac: &rbac.Rbac{
-			Client: *client,
+			Client: client,
 		},
 		ReportConfiguration: &reportconfiguration.ReportConfiguration{
-			Client: *client,
+			Client: client,
 		},
 		Report: &report.Report{
-			Client: *client,
+			Client: client,
 		},
 		Role: &role.Role{
-			Client: *client,
+			Client: client,
 		},
 		Search: &search.Search{
-			Client: *client,
+			Client: client,
 		},
 		Secret: &secret.Secret{
-			Client: *client,
+			Client: client,
 		},
 		SensorUpgrade: &sensorupgrade.SensorUpgrade{
-			Client: *client,
+			Client: client,
 		},
 		Account: &account.Account{
-			Client: *client,
+			Client: client,
 		},
 		Identity: &identity.Identity{
-			Client: *client,
+			Client: client,
 		},
 		SignatureIntegration: &signatureintegration.SignatureIntegration{
-			Client: *client,
+			Client: client,
 		},
 		Summary: &summary.Summary{
-			Client: *client,
+			Client: client,
 		},
 		Telemetry: &telemetry.Telemetry{
-			Client: *client,
+			Client: client,
 		},
 		User: &user.User{
-			Client: *client,
+			Client: client,
 		},
 		VulnerabilityRequest: &vulnerabilityrequest.VulnerabilityRequest{
-			Client: *client,
+			Client: client,
 		},
 	}
 }

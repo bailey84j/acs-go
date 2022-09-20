@@ -5,5 +5,5 @@ import (
 )
 
 type Account struct {
-	Client client.Client
+	Client *client.Client
 }

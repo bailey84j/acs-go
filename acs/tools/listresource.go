@@ -33,7 +33,7 @@ func GetResource(client *client.Client, endpoint string, args ...map[string]inte
 	//fmt.Printf("%s\n", uriEndpoint.String())
 
 	//uriEndpoint := client.BaseURL.String() + endpoint + param
-	logPrint(PrintLog{"Using this URL: " + uriEndpoint.String(), "INFO", client.LogLevel})
+	LogPrint(PrintLog{"Using this URL: " + uriEndpoint.String(), "INFO", client.LogLevel})
 
 	req, err := http.NewRequest("GET", uriEndpoint.String(), nil)
 	if err != nil {
@@ -48,14 +48,10 @@ func GetResource(client *client.Client, endpoint string, args ...map[string]inte
 		return nil, fmt.Errorf("error set auth: %s", err)
 	}
 
-	fmt.Printf("na: ")
-
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("HTTP request failed with error: %s", err)
 	}
-
-	fmt.Printf("\ncode: %d\n", res.StatusCode)
 
 	if res.StatusCode != http.StatusOK {
 		return nil, ResponseError(
@@ -143,7 +139,7 @@ func resourceMutability(client *client.Client, verb, endpoint string, args ...ma
 	//fmt.Printf("%s\n", uriEndpoint.String())
 
 	//uriEndpoint := client.BaseURL.String() + endpoint
-	logPrint(PrintLog{"Using this URL: " + uriEndpoint.String(), "DEBUG", client.LogLevel})
+	LogPrint(PrintLog{"Using this URL: " + uriEndpoint.String(), "DEBUG", client.LogLevel})
 
 	prepRequestBody := make(map[string]interface{})
 

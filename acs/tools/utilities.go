@@ -55,7 +55,7 @@ type PrintLog struct {
 	LogLevel string
 }
 
-func logPrint(data PrintLog) {
+func LogPrint(data PrintLog) {
 	// variables declaration
 
 	switch data.LogLevel {

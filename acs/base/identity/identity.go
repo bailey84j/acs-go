@@ -5,5 +5,5 @@ import (
 )
 
 type Identity struct {
-	Client client.Client
+	Client *client.Client
 }

@@ -7,17 +7,21 @@ import (
 )
 
 type ProbeUpload struct {
-	Client client.Client
+	Client *client.Client
 }
                     // debug: {"detail": [{"operationId": "ProbeUploadService_GetExistingProbes", "responses": {"200": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/v1GetExistingProbesResponse"}}}, "description": "A successful response."}, "default": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/runtimeError"}}}, "description": "An unexpected error response."}}, "tags": ["ProbeUploadService"]}], "method": "post"}
 
         
-func (a ProbeUpload) GetExistingProbes(args map[string]interface{}) {
+func (a ProbeUpload) GetExistingProbes(args map[string]interface{}) (map[string]interface{}, error) {
 
 fmt.Printf("Running  Vaidation Failed")
 
 uriPath := "/v1/probeupload/getexisting"
 
-    tools.PostResource(&a.Client, uriPath, args)
+    msi, err := tools.PostResource(a.Client, uriPath, args)
+    if err != nil {
+		return nil, fmt.Errorf("error: %d", err)
+	}
+    return msi, nil
 
 }    
