@@ -14,10 +14,10 @@ type Group struct {
         
 func (a Group) GetGroup(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("id-string,authProviderId-string,key-string,value-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/group"
 
@@ -30,10 +30,10 @@ uriPath := "/v1/group"
 }
 func (a Group) GetGroups(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("authProviderId-string,key-string,value-string,id-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/groups"
 
@@ -48,10 +48,10 @@ uriPath := "/v1/groups"
         
 func (a Group) DeleteGroup(args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("id-string,authProviderId-string,key-string,value-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return  fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/groups"
 
@@ -66,7 +66,7 @@ uriPath := "/v1/groups"
         
 func (a Group) CreateGroup(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/groups"
 
@@ -79,7 +79,7 @@ uriPath := "/v1/groups"
 }
 func (a Group) BatchUpdate(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/groupsbatch"
 
@@ -94,7 +94,7 @@ uriPath := "/v1/groupsbatch"
         
 func (a Group) UpdateGroup(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/groups"
 

@@ -14,7 +14,7 @@ type User struct {
         
 func (a User) GetUsers(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/users"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/users"
 }
 func (a User) GetUser(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/users/" + id + ""
 
@@ -40,7 +40,7 @@ uriPath := "/v1/users/" + id + ""
 }
 func (a User) GetUsersAttributes(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/usersattributes"
 

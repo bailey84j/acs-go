@@ -14,10 +14,10 @@ type ComplianceManagement struct {
         
 func (a ComplianceManagement) GetRecentRuns(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("clusterId-string,standardId-string,since-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/complianceManagement/runs"
 
@@ -30,10 +30,10 @@ uriPath := "/v1/complianceManagement/runs"
 }
 func (a ComplianceManagement) GetRunStatuses(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("runIds-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/compliancemanagement/runstatuses"
 
@@ -48,7 +48,7 @@ uriPath := "/v1/compliancemanagement/runstatuses"
         
 func (a ComplianceManagement) TriggerRuns(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/compliancemanagement/runs"
 

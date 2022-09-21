@@ -16,7 +16,7 @@ type NodeCVE struct {
 
 func (a NodeCVE) SuppressCVEs(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/nodecves/suppress"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/nodecves/suppress"
 
 func (a NodeCVE) UnsuppressCVEs(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/nodecves/unsuppress"
 

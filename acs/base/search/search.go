@@ -14,10 +14,10 @@ type Search struct {
         
 func (a Search) Search(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,categories-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/search"
 
@@ -30,10 +30,10 @@ uriPath := "/v1/search"
 }
 func (a Search) Autocomplete(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,categories-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/search/autocomplete"
 
@@ -46,10 +46,10 @@ uriPath := "/v1/search/autocomplete"
 }
 func (a Search) Options(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("categories-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/search/metadata/options"
 

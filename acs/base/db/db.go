@@ -14,7 +14,7 @@ type DB struct {
         
 func (a DB) GetExportCapabilities(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/db/exportcaps"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/db/exportcaps"
 }
 func (a DB) GetActiveRestoreProcess(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/db/restore"
 
@@ -42,7 +42,7 @@ uriPath := "/v1/db/restore"
         
 func (a DB) CancelRestoreProcess(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/db/restore/" + id + ""
 
@@ -57,7 +57,7 @@ uriPath := "/v1/db/restore/" + id + ""
         
 func (a DB) InterruptRestoreProcess(processId string,attemptId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/db/interruptrestore/" + processId + "/" + attemptId + ""
 

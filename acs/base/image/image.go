@@ -16,10 +16,10 @@ type Image struct {
 
 func (a Image) ListImages(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/images"
 
@@ -34,7 +34,7 @@ uriPath := "/v1/images"
 
 func (a Image) InvalidateScanAndRegistryCaches(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/images/cache/invalidate"
 
@@ -49,10 +49,10 @@ uriPath := "/v1/images/cache/invalidate"
 
 func (a Image) GetImage(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("includeSnoozed-boolean,stripDescription-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/images/" + id + ""
 
@@ -67,10 +67,10 @@ uriPath := "/v1/images/" + id + ""
 
 func (a Image) CountImages(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/imagescount"
 
@@ -85,7 +85,7 @@ uriPath := "/v1/imagescount"
 
 func (a Image) GetWatchedImages(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/watchedimages"
 
@@ -102,10 +102,10 @@ uriPath := "/v1/watchedimages"
 
 func (a Image) DeleteImages(args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query_query-string,query_pagination_limit-integer,query_pagination_offset-integer,query_pagination_sortOption_field-string,query_pagination_sortOption_reversed-boolean,confirm-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return  fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/images"
 
@@ -120,10 +120,10 @@ uriPath := "/v1/images"
 
 func (a Image) UnwatchImage(args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("name-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return  fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/watchedimages"
 
@@ -140,7 +140,7 @@ uriPath := "/v1/watchedimages"
 
 func (a Image) ScanImage(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/images/scan"
 
@@ -155,7 +155,7 @@ uriPath := "/v1/images/scan"
 
 func (a Image) WatchImage(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/watchedimages"
 

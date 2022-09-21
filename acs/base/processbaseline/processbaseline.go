@@ -16,10 +16,10 @@ type ProcessBaseline struct {
 
 func (a ProcessBaseline) GetProcessBaseline(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("key_deploymentId-string,key_containerName-string,key_clusterId-string,key_namespace-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/processbaselines/key"
 
@@ -36,10 +36,10 @@ uriPath := "/v1/processbaselines/key"
 
 func (a ProcessBaseline) DeleteProcessBaselines(args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,confirm-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return  fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/processbaselines"
 
@@ -56,7 +56,7 @@ uriPath := "/v1/processbaselines"
 
 func (a ProcessBaseline) UpdateProcessBaselines(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/processbaselines"
 
@@ -71,7 +71,7 @@ uriPath := "/v1/processbaselines"
 
 func (a ProcessBaseline) LockProcessBaselines(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/processbaselines/lock"
 

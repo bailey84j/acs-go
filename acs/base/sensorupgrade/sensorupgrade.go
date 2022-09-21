@@ -14,7 +14,7 @@ type SensorUpgrade struct {
         
 func (a SensorUpgrade) GetSensorUpgradeConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/sensorupgrades/config"
 
@@ -29,7 +29,7 @@ uriPath := "/v1/sensorupgrades/config"
         
 func (a SensorUpgrade) TriggerSensorUpgrade(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/sensorupgrades/cluster/" + id + ""
 
@@ -42,7 +42,7 @@ uriPath := "/v1/sensorupgrades/cluster/" + id + ""
 }
 func (a SensorUpgrade) UpdateSensorUpgradeConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/sensorupgrades/config"
 
@@ -55,7 +55,7 @@ uriPath := "/v1/sensorupgrades/config"
 }
 func (a SensorUpgrade) TriggerSensorCertRotation(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/sensorupgrades/rotateclustercerts/" + id + ""
 

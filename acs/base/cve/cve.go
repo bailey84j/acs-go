@@ -16,7 +16,7 @@ type CVE struct {
 
 func (a CVE) SuppressCVEs(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cves/suppress"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/cves/suppress"
 
 func (a CVE) UnsuppressCVEs(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cves/unsuppress"
 

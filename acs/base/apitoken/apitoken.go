@@ -16,10 +16,10 @@ type APIToken struct {
 
 func (a APIToken) GetAPITokens(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("revoked-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/apitokens"
 
@@ -34,7 +34,7 @@ uriPath := "/v1/apitokens"
 
 func (a APIToken) GetAPIToken(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/apitokens/" + id + ""
 
@@ -51,7 +51,7 @@ uriPath := "/v1/apitokens/" + id + ""
 
 func (a APIToken) RevokeToken(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/apitokens/revoke/" + id + ""
 
@@ -68,7 +68,7 @@ uriPath := "/v1/apitokens/revoke/" + id + ""
 
 func (a APIToken) GenerateToken(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/apitokens/generate"
 

@@ -16,10 +16,10 @@ type Policy struct {
 
 func (a Policy) ListPolicies(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/policies"
 
@@ -32,7 +32,7 @@ uriPath := "/v1/policies"
 }
 func (a Policy) QueryDryRunJobStatus(jobId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/dryrunjob/" + jobId + ""
 
@@ -47,7 +47,7 @@ uriPath := "/v1/policies/dryrunjob/" + jobId + ""
 
 func (a Policy) GetPolicy(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/" + id + ""
 
@@ -62,10 +62,10 @@ uriPath := "/v1/policies/" + id + ""
 
 func (a Policy) GetPolicyMitreVectors(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("options_excludePolicy-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/policies/" + id + "/mitrevectors"
 
@@ -80,7 +80,7 @@ uriPath := "/v1/policies/" + id + "/mitrevectors"
 
 func (a Policy) GetPolicyCategories(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policyCategories"
 
@@ -95,7 +95,7 @@ uriPath := "/v1/policyCategories"
         
 func (a Policy) CancelDryRunJob(jobId string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/dryrunjob/" + jobId + ""
 
@@ -110,7 +110,7 @@ uriPath := "/v1/policies/dryrunjob/" + jobId + ""
 
 func (a Policy) DeletePolicy(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/" + id + ""
 
@@ -125,7 +125,7 @@ uriPath := "/v1/policies/" + id + ""
 
 func (a Policy) DeletePolicyCategory(category string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policyCategories/" + category + ""
 
@@ -142,7 +142,7 @@ uriPath := "/v1/policyCategories/" + category + ""
 
 func (a Policy) PatchPolicy(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/" + id + ""
 
@@ -157,7 +157,7 @@ uriPath := "/v1/policies/" + id + ""
 
 func (a Policy) EnableDisablePolicyNotification(policyId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/" + policyId + "/notifiers"
 
@@ -174,10 +174,10 @@ uriPath := "/v1/policies/" + policyId + "/notifiers"
 
 func (a Policy) PostPolicy(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("enableStrictValidation-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/policies"
 
@@ -192,7 +192,7 @@ uriPath := "/v1/policies"
 
 func (a Policy) DryRunPolicy(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/dryrun"
 
@@ -205,7 +205,7 @@ uriPath := "/v1/policies/dryrun"
 }
 func (a Policy) SubmitDryRunPolicyJob(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/dryrunjob"
 
@@ -220,7 +220,7 @@ uriPath := "/v1/policies/dryrunjob"
 
 func (a Policy) ExportPolicies(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/export"
 
@@ -233,7 +233,7 @@ uriPath := "/v1/policies/export"
 }
 func (a Policy) PolicyFromSearch(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/from-search"
 
@@ -248,7 +248,7 @@ uriPath := "/v1/policies/from-search"
 
 func (a Policy) ImportPolicies(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/import"
 
@@ -263,7 +263,7 @@ uriPath := "/v1/policies/import"
 
 func (a Policy) ReassessPolicies(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/reassess"
 
@@ -280,7 +280,7 @@ uriPath := "/v1/policies/reassess"
 
 func (a Policy) PutPolicy(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policies/" + id + ""
 
@@ -295,7 +295,7 @@ uriPath := "/v1/policies/" + id + ""
 
 func (a Policy) RenamePolicyCategory(oldCategory string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policyCategories/" + oldCategory + ""
 

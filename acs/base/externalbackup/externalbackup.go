@@ -16,7 +16,7 @@ type ExternalBackup struct {
 
 func (a ExternalBackup) GetExternalBackups(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/externalbackups"
 
 func (a ExternalBackup) GetExternalBackup(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/" + id + ""
 
@@ -48,7 +48,7 @@ uriPath := "/v1/externalbackups/" + id + ""
 
 func (a ExternalBackup) DeleteExternalBackup(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/" + id + ""
 
@@ -65,7 +65,7 @@ uriPath := "/v1/externalbackups/" + id + ""
 
 func (a ExternalBackup) UpdateExternalBackup(externalBackup_id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/" + externalBackup_id + ""
 
@@ -82,7 +82,7 @@ uriPath := "/v1/externalbackups/" + externalBackup_id + ""
 
 func (a ExternalBackup) PostExternalBackup(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups"
 
@@ -97,7 +97,7 @@ uriPath := "/v1/externalbackups"
 
 func (a ExternalBackup) TestExternalBackup(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/test"
 
@@ -112,7 +112,7 @@ uriPath := "/v1/externalbackups/test"
 
 func (a ExternalBackup) TestUpdatedExternalBackup(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/test/updated"
 
@@ -127,7 +127,7 @@ uriPath := "/v1/externalbackups/test/updated"
 
 func (a ExternalBackup) TriggerExternalBackup(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/" + id + ""
 
@@ -144,7 +144,7 @@ uriPath := "/v1/externalbackups/" + id + ""
 
 func (a ExternalBackup) PutExternalBackup(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/externalbackups/" + id + ""
 

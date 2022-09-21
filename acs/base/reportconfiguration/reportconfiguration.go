@@ -16,10 +16,10 @@ type ReportConfiguration struct {
 
 func (a ReportConfiguration) CountReportConfigurations(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/report-configurations-count"
 
@@ -32,10 +32,10 @@ uriPath := "/v1/report-configurations-count"
 }
 func (a ReportConfiguration) GetReportConfigurations(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/report/configurations"
 
@@ -48,7 +48,7 @@ uriPath := "/v1/report/configurations"
 }
 func (a ReportConfiguration) GetReportConfiguration(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/report/configurations/" + id + ""
 
@@ -65,7 +65,7 @@ uriPath := "/v1/report/configurations/" + id + ""
 
 func (a ReportConfiguration) DeleteReportConfiguration(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/report/configurations/" + id + ""
 
@@ -82,7 +82,7 @@ uriPath := "/v1/report/configurations/" + id + ""
 
 func (a ReportConfiguration) PostReportConfiguration(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/report/configurations"
 
@@ -99,7 +99,7 @@ uriPath := "/v1/report/configurations"
 
 func (a ReportConfiguration) UpdateReportConfiguration(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/report/configurations/" + id + ""
 

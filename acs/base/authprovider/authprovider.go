@@ -14,10 +14,10 @@ type AuthProvider struct {
         
 func (a AuthProvider) GetAuthProviders(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("name-string,type-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/authProviders"
 
@@ -30,7 +30,7 @@ uriPath := "/v1/authProviders"
 }
 func (a AuthProvider) GetAuthProvider(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/authProviders/" + id + ""
 
@@ -43,7 +43,7 @@ uriPath := "/v1/authProviders/" + id + ""
 }
 func (a AuthProvider) ListAvailableProviderTypes(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/availableAuthProviders"
 
@@ -56,7 +56,7 @@ uriPath := "/v1/availableAuthProviders"
 }
 func (a AuthProvider) GetLoginAuthProviders(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/login/authproviders"
 
@@ -71,7 +71,7 @@ uriPath := "/v1/login/authproviders"
         
 func (a AuthProvider) DeleteAuthProvider(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/authProviders/" + id + ""
 
@@ -86,7 +86,7 @@ uriPath := "/v1/authProviders/" + id + ""
         
 func (a AuthProvider) UpdateAuthProvider(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/authProviders/" + id + ""
 
@@ -101,7 +101,7 @@ uriPath := "/v1/authProviders/" + id + ""
         
 func (a AuthProvider) PostAuthProvider(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/authProviders"
 
@@ -114,7 +114,7 @@ uriPath := "/v1/authProviders"
 }
 func (a AuthProvider) ExchangeToken(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/authProviders/exchangeToken"
 
@@ -129,7 +129,7 @@ uriPath := "/v1/authProviders/exchangeToken"
         
 func (a AuthProvider) PutAuthProvider(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/authProviders/" + id + ""
 

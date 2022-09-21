@@ -16,7 +16,7 @@ type ClusterCVE struct {
 
 func (a ClusterCVE) SuppressCVEs(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clustercves/suppress"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/clustercves/suppress"
 
 func (a ClusterCVE) UnsuppressCVEs(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clustercves/unsuppress"
 

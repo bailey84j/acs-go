@@ -67,13 +67,13 @@
   #    dest: acs_methods_raw.yaml
   
   # region code gen
-  - name: create folders for each path
-    file:
-      path: "../acs/base/{{ item | lower }}"
-      state: directory
-      mode: 0775
-      recurse: true
-    with_items: "{{ acs_paths }}"
+  #- name: create folders for each path
+  #  file:
+  #    path: "../acs/base/{{ item | lower }}"
+  #    state: directory
+  #    mode: 0775
+  #    recurse: true
+  #  with_items: "{{ acs_paths }}"
 
   - name: Create golang
     ansible.builtin.template:
@@ -83,6 +83,14 @@
       - "{{ acs_paths }}"
     register: tmp
     #when: tmp is not defined
+
+  - name: Create golang - tests
+    ansible.builtin.template:
+      src: go_testv1.j2
+      dest: "../acs/base/{{ item | lower }}/{{ item | lower }}_test.go"
+    with_items:
+      - "{{ acs_paths }}"
+    register: tmp_test
   
   - name: Create doc files
     ansible.builtin.template:

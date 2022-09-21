@@ -16,10 +16,10 @@ type ImageIntegration struct {
 
 func (a ImageIntegration) GetImageIntegrations(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("name-string,cluster-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/imageintegrations"
 
@@ -34,7 +34,7 @@ uriPath := "/v1/imageintegrations"
 
 func (a ImageIntegration) GetImageIntegration(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations/" + id + ""
 
@@ -51,7 +51,7 @@ uriPath := "/v1/imageintegrations/" + id + ""
 
 func (a ImageIntegration) DeleteImageIntegration(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations/" + id + ""
 
@@ -68,7 +68,7 @@ uriPath := "/v1/imageintegrations/" + id + ""
 
 func (a ImageIntegration) UpdateImageIntegration(config_id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations/" + config_id + ""
 
@@ -85,7 +85,7 @@ uriPath := "/v1/imageintegrations/" + config_id + ""
 
 func (a ImageIntegration) PostImageIntegration(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations"
 
@@ -100,7 +100,7 @@ uriPath := "/v1/imageintegrations"
 
 func (a ImageIntegration) TestImageIntegration(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations/test"
 
@@ -115,7 +115,7 @@ uriPath := "/v1/imageintegrations/test"
 
 func (a ImageIntegration) TestUpdatedImageIntegration(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations/test/updated"
 
@@ -132,7 +132,7 @@ uriPath := "/v1/imageintegrations/test/updated"
 
 func (a ImageIntegration) PutImageIntegration(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/imageintegrations/" + id + ""
 

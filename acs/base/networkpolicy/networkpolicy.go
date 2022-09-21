@@ -14,10 +14,10 @@ type NetworkPolicy struct {
         
 func (a NetworkPolicy) GetNetworkPolicies(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("clusterId-string,deploymentQuery-string,namespace-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkpolicies"
 
@@ -30,7 +30,7 @@ uriPath := "/v1/networkpolicies"
 }
 func (a NetworkPolicy) GetAllowedPeersFromCurrentPolicyForDeployment(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/allowedpeers/" + id + ""
 
@@ -43,7 +43,7 @@ uriPath := "/v1/networkpolicies/allowedpeers/" + id + ""
 }
 func (a NetworkPolicy) GetDiffFlowsBetweenPolicyAndBaselineForDeployment(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/baselinecomparison/" + id + ""
 
@@ -56,10 +56,10 @@ uriPath := "/v1/networkpolicies/baselinecomparison/" + id + ""
 }
 func (a NetworkPolicy) GetNetworkGraph(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,includePorts-boolean,scope_query-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkpolicies/cluster/" + clusterId + ""
 
@@ -72,10 +72,10 @@ uriPath := "/v1/networkpolicies/cluster/" + clusterId + ""
 }
 func (a NetworkPolicy) GenerateNetworkPolicies(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,deleteExisting-string,networkDataSince-string,includePorts-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkpolicies/generate/" + clusterId + ""
 
@@ -88,10 +88,10 @@ uriPath := "/v1/networkpolicies/generate/" + clusterId + ""
 }
 func (a NetworkPolicy) GetNetworkGraphEpoch(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("clusterId-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkpolicies/graph/epoch"
 
@@ -104,7 +104,7 @@ uriPath := "/v1/networkpolicies/graph/epoch"
 }
 func (a NetworkPolicy) GetUndoModificationForDeployment(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/undo/deployment/" + id + ""
 
@@ -117,7 +117,7 @@ uriPath := "/v1/networkpolicies/undo/deployment/" + id + ""
 }
 func (a NetworkPolicy) GetUndoModification(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/undo/" + clusterId + ""
 
@@ -130,7 +130,7 @@ uriPath := "/v1/networkpolicies/undo/" + clusterId + ""
 }
 func (a NetworkPolicy) GetDiffFlowsFromUndoModificationForDeployment(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/undobaselinecomparison/" + id + ""
 
@@ -143,7 +143,7 @@ uriPath := "/v1/networkpolicies/undobaselinecomparison/" + id + ""
 }
 func (a NetworkPolicy) GetNetworkPolicy(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/" + id + ""
 
@@ -158,7 +158,7 @@ uriPath := "/v1/networkpolicies/" + id + ""
         
 func (a NetworkPolicy) ApplyNetworkPolicyYamlForDeployment(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/apply/deployment/" + deploymentId + ""
 
@@ -171,7 +171,7 @@ uriPath := "/v1/networkpolicies/apply/deployment/" + deploymentId + ""
 }
 func (a NetworkPolicy) ApplyNetworkPolicy(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/apply/" + clusterId + ""
 
@@ -184,7 +184,7 @@ uriPath := "/v1/networkpolicies/apply/" + clusterId + ""
 }
 func (a NetworkPolicy) GetBaselineGeneratedNetworkPolicyForDeployment(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkpolicies/generate/baseline/" + deploymentId + ""
 
@@ -197,10 +197,10 @@ uriPath := "/v1/networkpolicies/generate/baseline/" + deploymentId + ""
 }
 func (a NetworkPolicy) SimulateNetworkGraph(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,includePorts-boolean,includeNodeDiff-boolean,scope_query-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkpolicies/simulate/" + clusterId + ""
 
@@ -213,10 +213,10 @@ uriPath := "/v1/networkpolicies/simulate/" + clusterId + ""
 }
 func (a NetworkPolicy) SendNetworkPolicyYAML(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("notifierIds-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkpolicies/simulate/" + clusterId + "/notify"
 

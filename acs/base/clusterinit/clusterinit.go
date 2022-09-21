@@ -14,7 +14,7 @@ type ClusterInit struct {
         
 func (a ClusterInit) GetCAConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cluster-init/ca-config"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/cluster-init/ca-config"
 }
 func (a ClusterInit) GetInitBundles(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cluster-init/init-bundles"
 
@@ -44,7 +44,7 @@ uriPath := "/v1/cluster-init/init-bundles"
 
 func (a ClusterInit) RevokeInitBundle(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cluster-init/init-bundles/revoke"
 
@@ -59,7 +59,7 @@ uriPath := "/v1/cluster-init/init-bundles/revoke"
         
 func (a ClusterInit) GenerateInitBundle(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cluster-init/init-bundles"
 

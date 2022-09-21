@@ -16,7 +16,7 @@ type Debug struct {
 
 func (a Debug) StreamAuthzTraces(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/debug/authz/trace"
 
@@ -31,10 +31,10 @@ uriPath := "/v1/debug/authz/trace"
 
 func (a Debug) GetLogLevel(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("modules-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/debug/loglevel"
 
@@ -51,7 +51,7 @@ uriPath := "/v1/debug/loglevel"
 
 func (a Debug) SetLogLevel(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/debug/loglevel"
 

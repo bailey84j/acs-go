@@ -16,7 +16,7 @@ type MitreAttack struct {
 
 func (a MitreAttack) ListMitreAttackVectors(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/mitreattackvectors"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/mitreattackvectors"
 
 func (a MitreAttack) GetMitreAttackVector(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/mitreattackvectors/" + id + ""
 

@@ -14,7 +14,7 @@ type Config struct {
         
 func (a Config) GetConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/config"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/config"
 }
 func (a Config) GetPrivateConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/config/private"
 
@@ -40,7 +40,7 @@ uriPath := "/v1/config/private"
 }
 func (a Config) GetPublicConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/config/public"
 
@@ -55,7 +55,7 @@ uriPath := "/v1/config/public"
         
 func (a Config) PutConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/config"
 

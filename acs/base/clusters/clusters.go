@@ -14,7 +14,7 @@ type Clusters struct {
         
 func (a Clusters) GetClusterDefaultValues(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/cluster-defaults"
 
@@ -27,10 +27,10 @@ uriPath := "/v1/cluster-defaults"
 }
 func (a Clusters) GetClusters(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/clusters"
 
@@ -45,7 +45,7 @@ uriPath := "/v1/clusters"
 
 func (a Clusters) GetKernelSupportAvailable(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clusters-env/kernel-support-available"
 
@@ -58,7 +58,7 @@ uriPath := "/v1/clusters-env/kernel-support-available"
 }
 func (a Clusters) GetCluster(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clusters/" + id + ""
 
@@ -73,7 +73,7 @@ uriPath := "/v1/clusters/" + id + ""
         
 func (a Clusters) DeleteCluster(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clusters/" + id + ""
 
@@ -88,7 +88,7 @@ uriPath := "/v1/clusters/" + id + ""
         
 func (a Clusters) PostCluster(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clusters"
 
@@ -103,7 +103,7 @@ uriPath := "/v1/clusters"
         
 func (a Clusters) PutCluster(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/clusters/" + id + ""
 

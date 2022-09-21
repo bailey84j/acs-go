@@ -16,7 +16,7 @@ type Process struct {
 
 func (a Process) GetProcessesByDeployment(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/processes/deployment/" + deploymentId + ""
 
@@ -31,7 +31,7 @@ uriPath := "/v1/processes/deployment/" + deploymentId + ""
 
 func (a Process) GetGroupedProcessByDeployment(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/processes/deployment/" + deploymentId + "/grouped"
 
@@ -46,7 +46,7 @@ uriPath := "/v1/processes/deployment/" + deploymentId + "/grouped"
 
 func (a Process) GetGroupedProcessByDeploymentAndContainer(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/processes/deployment/" + deploymentId + "/grouped/container"
 

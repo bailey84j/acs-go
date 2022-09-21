@@ -16,10 +16,10 @@ type PolicyCategory struct {
 
 func (a PolicyCategory) GetPolicyCategories(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,pagination_limit-integer,pagination_offset-integer,pagination_sortOption_field-string,pagination_sortOption_reversed-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/policycategories"
 
@@ -34,7 +34,7 @@ uriPath := "/v1/policycategories"
 
 func (a PolicyCategory) GetPolicyCategory(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policycategories/" + id + ""
 
@@ -51,7 +51,7 @@ uriPath := "/v1/policycategories/" + id + ""
 
 func (a PolicyCategory) DeletePolicyCategory(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policycategories/" + id + ""
 
@@ -68,7 +68,7 @@ uriPath := "/v1/policycategories/" + id + ""
 
 func (a PolicyCategory) PostPolicyCategory(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policycategories"
 
@@ -85,7 +85,7 @@ uriPath := "/v1/policycategories"
 
 func (a PolicyCategory) RenamePolicyCategory(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/policycategories"
 

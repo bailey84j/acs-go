@@ -14,7 +14,7 @@ type SignatureIntegration struct {
         
 func (a SignatureIntegration) ListSignatureIntegrations(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/signatureintegrations"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/signatureintegrations"
 }
 func (a SignatureIntegration) GetSignatureIntegration(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/signatureintegrations/" + id + ""
 
@@ -42,7 +42,7 @@ uriPath := "/v1/signatureintegrations/" + id + ""
         
 func (a SignatureIntegration) DeleteSignatureIntegration(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/signatureintegrations/" + id + ""
 
@@ -59,7 +59,7 @@ uriPath := "/v1/signatureintegrations/" + id + ""
 
 func (a SignatureIntegration) PostSignatureIntegration(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/signatureintegrations"
 
@@ -74,7 +74,7 @@ uriPath := "/v1/signatureintegrations"
         
 func (a SignatureIntegration) PutSignatureIntegration(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/signatureintegrations/" + id + ""
 

@@ -14,7 +14,7 @@ type Node struct {
         
 func (a Node) ListNodes(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/nodes/" + clusterId + ""
 
@@ -27,7 +27,7 @@ uriPath := "/v1/nodes/" + clusterId + ""
 }
 func (a Node) GetNode(clusterId string,nodeId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/nodes/" + clusterId + "/" + nodeId + ""
 

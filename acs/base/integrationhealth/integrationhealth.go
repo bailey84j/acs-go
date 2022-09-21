@@ -14,7 +14,7 @@ type IntegrationHealth struct {
         
 func (a IntegrationHealth) GetBackupPlugins(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/integrationhealth/externalbackups"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/integrationhealth/externalbackups"
 }
 func (a IntegrationHealth) GetImageIntegrations(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/integrationhealth/imageintegrations"
 
@@ -40,7 +40,7 @@ uriPath := "/v1/integrationhealth/imageintegrations"
 }
 func (a IntegrationHealth) GetNotifiers(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/integrationhealth/notifiers"
 
@@ -53,7 +53,7 @@ uriPath := "/v1/integrationhealth/notifiers"
 }
 func (a IntegrationHealth) GetVulnDefinitionsInfo(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/integrationhealth/vulndefinitions"
 

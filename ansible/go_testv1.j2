@@ -1,0 +1,114 @@
+{% set itemFuncQuery = '[?name==`' + item + '`].func[]' %}
+{# Get Package Name From Loop Item#}
+package {{ item | lower}}_test
+
+{# Build import block #}
+import (
+	"encoding/json"
+	"io/ioutil"
+	"os"
+	"testing"
+
+	"github.com/bailey84j/acs-go/acs"
+)
+
+type {{ item | lower}}Tests struct {
+	Name   string
+	Args   map[string]interface{}
+	Result string
+}
+
+{# Loop through all functions which need to be created#}
+{% for func in acs_methods_raw | json_query(itemFuncQuery)  %}
+{# Check there is a valid detail to use to build function #}
+{% if func.detail | string != '[]' %}
+{% for detail in func.detail %}
+func Test{{ detail.operationId.split('_')[1]}}(t *testing.T) {
+	// variables declaration
+
+	password := os.Getenv("acs_password")
+	username := os.Getenv("acs_username")
+	url := os.Getenv("acs_url")
+
+	tableFile := "../../test_tables/{{ item | lower}}/{{ detail.operationId.split('_')[1] | lower }}.json"
+	State, err := ioutil.ReadFile(tableFile)
+	if err != nil {
+		t.Errorf("could not read test table file: %d", err)
+	}
+
+	var getTests []{{ item | lower}}Tests
+	err = json.Unmarshal(State, &getTests)
+	if err != nil {
+		t.Errorf("error occurred while unmarshling Tests: %d", err)
+	}
+
+	for _, tt := range getTests {
+		t.Run(tt.Name, func(t *testing.T) {
+
+			type params struct {
+				fieldTypes string                 `json:"fieldTypes"`
+				args       map[string]interface{} `json:"args"`
+                {% if 'name' in detail | json_query('parameters[?required][]') | string -%}
+        {%- for reqparam in detail | json_query('parameters[?required][]') -%}
+        {{ reqparam.name | replace('.','_') }} {{ reqparam.schema.type }} `json:"{{ reqparam.name | replace('.','_') }}"`{%- endfor -%}
+        {%- endif %}
+			
+            }
+
+			var args map[string]interface{}
+			json.Unmarshal([]byte(tt.Args["args"].(string)), &args)
+
+			testParams := params{
+				fieldTypes: tt.Args["fieldTypes"].(string),
+				args:       args,
+			}
+
+			acs := acs.NewACSAPI(url)
+			err = acs.Authenticate(username, password)
+			if err != nil {
+				if err.Error() == tt.Result {
+					t.Errorf("test failed: %v", err.Error())
+				}
+			}
+
+			{% if func.method != "delete" %}msi,{% endif %} err := acs.{{ item }}.{{ detail.operationId.split('_')[1] }}(
+        {%- if 'name' in detail | json_query('parameters[?required][]') | string -%}
+        {%- for reqparam in detail | json_query('parameters[?required][]') -%}
+        testParams.{{ reqparam.name | replace('.','_') }},{%- endfor -%}
+        {%- endif -%}testParams.args)
+        {% if func.method != "delete" %}
+			if msi != nil {
+				jsonbyte, err := json.Marshal(msi)
+				if err != nil {
+					t.Errorf("error parsing JSON string - %s", err)
+				}
+
+				jsonstring := string(jsonbyte)
+				t.Log(jsonstring)
+
+				if jsonstring != tt.Result {
+					t.Errorf("Expected: " + tt.Result + "\nGot: " + jsonstring)
+				}
+				//fmt.Println(j)
+			} else {
+				//fmt.Println(err)
+				if err.Error() != tt.Result {
+					//t.Log(tt.Result)
+					t.Errorf("test failed: %v", err.Error())
+				}
+			}
+        {% else %}
+        	if err.Error() != tt.Result {
+				//t.Log(tt.Result)
+			    t.Errorf("test failed: %v", err.Error())
+			}
+        {% endif %}
+
+		})
+	}
+}
+{% endfor%}
+
+
+{% endif %}
+{% endfor %}

@@ -14,7 +14,7 @@ type Role struct {
         
 func (a Role) GetMyPermissions(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/mypermissions"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/mypermissions"
 }
 func (a Role) ListPermissionSets(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/permissionsets"
 
@@ -40,7 +40,7 @@ uriPath := "/v1/permissionsets"
 }
 func (a Role) GetPermissionSet(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/permissionsets/" + id + ""
 
@@ -53,7 +53,7 @@ uriPath := "/v1/permissionsets/" + id + ""
 }
 func (a Role) GetResources(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/resources"
 
@@ -66,7 +66,7 @@ uriPath := "/v1/resources"
 }
 func (a Role) GetRoles(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/roles"
 
@@ -79,7 +79,7 @@ uriPath := "/v1/roles"
 }
 func (a Role) GetRole(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/roles/" + id + ""
 
@@ -92,7 +92,7 @@ uriPath := "/v1/roles/" + id + ""
 }
 func (a Role) ListSimpleAccessScopes(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/simpleaccessscopes"
 
@@ -105,7 +105,7 @@ uriPath := "/v1/simpleaccessscopes"
 }
 func (a Role) GetSimpleAccessScope(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/simpleaccessscopes/" + id + ""
 
@@ -120,7 +120,7 @@ uriPath := "/v1/simpleaccessscopes/" + id + ""
         
 func (a Role) DeletePermissionSet(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/permissionsets/" + id + ""
 
@@ -133,7 +133,7 @@ uriPath := "/v1/permissionsets/" + id + ""
 }
 func (a Role) DeleteRole(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/roles/" + id + ""
 
@@ -146,7 +146,7 @@ uriPath := "/v1/roles/" + id + ""
 }
 func (a Role) DeleteSimpleAccessScope(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/simpleaccessscopes/" + id + ""
 
@@ -163,10 +163,10 @@ uriPath := "/v1/simpleaccessscopes/" + id + ""
 
 func (a Role) ComputeEffectiveAccessScope(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("detail-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/computeeffectiveaccessscope"
 
@@ -181,7 +181,7 @@ uriPath := "/v1/computeeffectiveaccessscope"
 
 func (a Role) PostPermissionSet(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/permissionsets"
 
@@ -194,7 +194,7 @@ uriPath := "/v1/permissionsets"
 }
 func (a Role) CreateRole(name string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/roles/" + name + ""
 
@@ -209,7 +209,7 @@ uriPath := "/v1/roles/" + name + ""
 
 func (a Role) PostSimpleAccessScope(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/simpleaccessscopes"
 
@@ -224,7 +224,7 @@ uriPath := "/v1/simpleaccessscopes"
         
 func (a Role) PutPermissionSet(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/permissionsets/" + id + ""
 
@@ -237,7 +237,7 @@ uriPath := "/v1/permissionsets/" + id + ""
 }
 func (a Role) UpdateRole(name string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/roles/" + name + ""
 
@@ -250,7 +250,7 @@ uriPath := "/v1/roles/" + name + ""
 }
 func (a Role) PutSimpleAccessScope(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/simpleaccessscopes/" + id + ""
 

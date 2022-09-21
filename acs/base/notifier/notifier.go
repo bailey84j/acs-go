@@ -16,7 +16,7 @@ type Notifier struct {
 
 func (a Notifier) GetNotifiers(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/notifiers"
 
 func (a Notifier) GetNotifier(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers/" + id + ""
 
@@ -48,10 +48,10 @@ uriPath := "/v1/notifiers/" + id + ""
 
 func (a Notifier) DeleteNotifier(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("force-boolean",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return  fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/notifiers/" + id + ""
 
@@ -68,7 +68,7 @@ uriPath := "/v1/notifiers/" + id + ""
 
 func (a Notifier) UpdateNotifier(notifier_id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers/" + notifier_id + ""
 
@@ -85,7 +85,7 @@ uriPath := "/v1/notifiers/" + notifier_id + ""
 
 func (a Notifier) PostNotifier(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers"
 
@@ -100,7 +100,7 @@ uriPath := "/v1/notifiers"
 
 func (a Notifier) TestNotifier(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers/test"
 
@@ -115,7 +115,7 @@ uriPath := "/v1/notifiers/test"
 
 func (a Notifier) TestUpdatedNotifier(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers/test/updated"
 
@@ -132,7 +132,7 @@ uriPath := "/v1/notifiers/test/updated"
 
 func (a Notifier) PutNotifier(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/notifiers/" + id + ""
 

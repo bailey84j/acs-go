@@ -16,7 +16,7 @@ type Detection struct {
 
 func (a Detection) DetectBuildTime(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/detect/build"
 
@@ -31,7 +31,7 @@ uriPath := "/v1/detect/build"
 
 func (a Detection) DetectDeployTime(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/detect/deploy"
 
@@ -46,7 +46,7 @@ uriPath := "/v1/detect/deploy"
 
 func (a Detection) DetectDeployTimeFromYAML(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/detect/deploy/yaml"
 

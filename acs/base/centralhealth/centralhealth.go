@@ -14,7 +14,7 @@ type CentralHealth struct {
         
 func (a CentralHealth) GetUpgradeStatus(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/centralhealth/upgradestatus"
 

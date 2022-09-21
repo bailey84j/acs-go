@@ -14,7 +14,7 @@ type NetworkBaseline struct {
         
 func (a NetworkBaseline) GetNetworkBaseline(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkbaseline/" + id + ""
 
@@ -29,7 +29,7 @@ uriPath := "/v1/networkbaseline/" + id + ""
         
 func (a NetworkBaseline) ModifyBaselineStatusForPeers(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkbaseline/" + deploymentId + "/peers"
 
@@ -42,7 +42,7 @@ uriPath := "/v1/networkbaseline/" + deploymentId + "/peers"
 }
 func (a NetworkBaseline) LockNetworkBaseline(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkbaseline/" + id + "/lock"
 
@@ -55,7 +55,7 @@ uriPath := "/v1/networkbaseline/" + id + "/lock"
 }
 func (a NetworkBaseline) UnlockNetworkBaseline(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkbaseline/" + id + "/unlock"
 
@@ -70,7 +70,7 @@ uriPath := "/v1/networkbaseline/" + id + "/unlock"
         
 func (a NetworkBaseline) GetNetworkBaselineStatusForFlows(deploymentId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkbaseline/" + deploymentId + "/status"
 

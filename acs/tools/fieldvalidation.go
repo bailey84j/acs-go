@@ -18,6 +18,10 @@ func CheckFieldsValid(fieldTypes string, args map[string]interface{}) bool {
 	var checkFields []FieldsAndTypes
 	//fmt.Printf("fieldTypes: %s", fieldTypes)
 
+	if args == nil {
+		return true
+	}
+
 	fieldsAndTypes := strings.Split(fieldTypes, ",")
 	for _, fieldAndType := range fieldsAndTypes {
 		splitFieldAndType := strings.Split(fieldAndType, "-")

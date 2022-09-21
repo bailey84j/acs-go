@@ -14,10 +14,10 @@ type NetworkGraph struct {
         
 func (a NetworkGraph) GetNetworkGraph(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string,since-string,includePorts-boolean,scope_query-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkgraph/cluster/" + clusterId + ""
 
@@ -30,10 +30,10 @@ uriPath := "/v1/networkgraph/cluster/" + clusterId + ""
 }
 func (a NetworkGraph) GetExternalNetworkEntities(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("query-string",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/networkgraph/cluster/" + clusterId + "/externalentities"
 
@@ -46,7 +46,7 @@ uriPath := "/v1/networkgraph/cluster/" + clusterId + "/externalentities"
 }
 func (a NetworkGraph) GetNetworkGraphConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkgraph/config"
 
@@ -61,7 +61,7 @@ uriPath := "/v1/networkgraph/config"
         
 func (a NetworkGraph) DeleteExternalNetworkEntity(id string,args map[string]interface{}) ( error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkgraph/externalentities/" + id + ""
 
@@ -76,7 +76,7 @@ uriPath := "/v1/networkgraph/externalentities/" + id + ""
         
 func (a NetworkGraph) PatchExternalNetworkEntity(id string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkgraph/externalentities/" + id + ""
 
@@ -91,7 +91,7 @@ uriPath := "/v1/networkgraph/externalentities/" + id + ""
         
 func (a NetworkGraph) CreateExternalNetworkEntity(clusterId string,args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkgraph/cluster/" + clusterId + "/externalentities"
 
@@ -106,7 +106,7 @@ uriPath := "/v1/networkgraph/cluster/" + clusterId + "/externalentities"
         
 func (a NetworkGraph) PutNetworkGraphConfig(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/networkgraph/config"
 

@@ -14,7 +14,7 @@ type License struct {
         
 func (a License) GetActiveLicenseKey(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/licenses/activekey"
 
@@ -27,7 +27,7 @@ uriPath := "/v1/licenses/activekey"
 }
 func (a License) GetActiveLicenseExpiration(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/licenses/expiration"
 
@@ -40,10 +40,10 @@ uriPath := "/v1/licenses/expiration"
 }
 func (a License) GetLicenses(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
     ok := tools.CheckFieldsValid("active-boolean,statuses-array",args)
     if !ok {
-		fmt.Printf("Variable Vaidation Failed")
+		return nil, fmt.Errorf("Variable Vaidation Failed")
     }
 uriPath := "/v1/licenses/list"
 
@@ -58,7 +58,7 @@ uriPath := "/v1/licenses/list"
         
 func (a License) AddLicense(args map[string]interface{}) (map[string]interface{}, error) {
 
-fmt.Printf("Running  Vaidation Failed")
+    tools.LogPrint(tools.PrintLog{"Validating Fields", "INFO", a.Client.LogLevel})
 
 uriPath := "/v1/licenses/add"
 
